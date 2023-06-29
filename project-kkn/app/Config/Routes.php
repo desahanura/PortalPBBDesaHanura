@@ -31,6 +31,12 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+
+// $routes->addRedirect('/', 'home');
+$routes->get('daftarNopPbb/', 'DaftarNopPbb::index');
+$routes->get('daftarSudahBayar/', 'DaftarSudahBayar::index');
+$routes->get('daftarDihapus/', 'DaftarDihapus::index');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
