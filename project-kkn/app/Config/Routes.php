@@ -36,6 +36,18 @@ $routes->get('/', 'Home::index');
 $routes->get('daftarNopPbb/', 'DaftarNopPbb::index');
 $routes->get('daftarSudahBayar/', 'DaftarSudahBayar::index');
 $routes->get('daftarDihapus/', 'DaftarDihapus::index');
+$routes->get('daftarHarusDitagih/', 'DaftarHarusDitagih::index');
+$routes->get('daftarSpptTidakDitemukan/', 'DaftarSpptTidakDitemukan::index');
+
+// DATABASE
+$routes->get('create-db', function()
+{
+    $forge = \Config\Database::forge();
+    if ($forge->createDatabase('pbbDesaHanura'))
+    {
+        echo 'Database created!';
+    }
+});
 
 /*
  * --------------------------------------------------------------------
