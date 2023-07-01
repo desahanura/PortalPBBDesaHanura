@@ -40,11 +40,9 @@ $routes->get('daftarHarusDitagih/', 'DaftarHarusDitagih::index');
 $routes->get('daftarSpptTidakDitemukan/', 'DaftarSpptTidakDitemukan::index');
 
 // DATABASE
-$routes->get('create-db', function()
-{
+$routes->get('create-db', function () {
     $forge = \Config\Database::forge();
-    if ($forge->createDatabase('pbbDesaHanura'))
-    {
+    if ($forge->createDatabase('pbbDesaHanura')) {
         echo 'Database created!';
     }
 });
