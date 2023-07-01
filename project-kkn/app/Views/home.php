@@ -11,7 +11,7 @@
     </div>
 
     <div class="section-body">
-        <h1>Hello World!</h1>
+        <h1> Hello World </h1>
     </div>
 </section>
 <?= $this->endSection() ?>
