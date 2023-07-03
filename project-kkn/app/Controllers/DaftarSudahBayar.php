@@ -6,6 +6,6 @@ class DaftarSudahBayar extends BaseController
 {
     public function index()
     {
-        return view('daftarSudahBayar/get');
+        return view('daftarSudahBayar/viewDaftarSudahBayar');
     }
 }

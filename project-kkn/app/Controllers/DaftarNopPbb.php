@@ -13,7 +13,7 @@ class DaftarNopPbb extends BaseController
 
         $data['tb_noppbb'] = $query->getResult();
 
-        return view('daftarNopPbb/get', $data);
+        return view('daftarNopPbb/viewDaftarNopPbb', $data);
     }
 
     public function import()

@@ -6,6 +6,6 @@ class DaftarHarusDitagih extends BaseController
 {
     public function index()
     {
-        return view('daftarHarusDitagih/get');
+        return view('daftarHarusDitagih/viewDaftarHarusDitagih');
     }
 }

@@ -6,6 +6,6 @@ class DaftarDihapus extends BaseController
 {
     public function index()
     {
-        return view('daftarDihapus/get');
+        return view('daftarDihapus/viewDaftarDihapus');
     }
 }

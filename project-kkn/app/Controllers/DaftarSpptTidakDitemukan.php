@@ -6,6 +6,6 @@ class DaftarSpptTidakDitemukan extends BaseController
 {
     public function index()
     {
-        return view('daftarSpptTidakDitemukan/get');
+        return view('daftarSpptTidakDitemukan/viewDaftarSpptTidakDitemukan');
     }
 }
