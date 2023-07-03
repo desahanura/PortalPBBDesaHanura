@@ -39,6 +39,9 @@ $routes->get('daftarDihapus/', 'DaftarDihapus::index');
 $routes->get('daftarHarusDitagih/', 'DaftarHarusDitagih::index');
 $routes->get('daftarSpptTidakDitemukan/', 'DaftarSpptTidakDitemukan::index');
 
+// Import Excel
+$routes->post('noppbb/import', 'DaftarNopPbb::import'); //tambahkan filter
+
 // DATABASE
 $routes->get('create-db', function () {
     $forge = \Config\Database::forge();
