@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <ul class="navbar-nav navbar-right">
-                    <img alt="logo" src="images/logohanura.png" width="30px">
+                    <img alt="Logo Hanura" src="images/logohanura.png" width="30px">
                 </ul>
             </nav>
 
@@ -61,8 +61,10 @@
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
                         <a href="<?= site_url() ?>">Portal Desa Hanura</a>
-                        <img src="images/logohanura.png" style="width: 100px">
-
+                        <div>
+                            <img alt="Logo Hanura" src="images/logohanura.png" style="width: 100px">
+                        </div>
+                        &nbsp;
                     </div>
                     <ul class="sidebar-menu">
                         <?= $this->include('layout/portalMenu'); ?>
@@ -88,7 +90,7 @@
                             <div class="card-body">
                                 <div class="mb-2 text-muted">Pencatatan PBB Desa Hanura</div>
                                 <div class="chocolat-parent">
-                                    <img href="<?= site_url('lamanOverview') ?>" src="images/logohanura.png">
+                                    <img href="<?= site_url('lamanOverview') ?>" src="images/logohanura.png" alt="Logo Hanura">
                                 </div>
                             </div>
                         </div>
@@ -105,7 +107,7 @@
                             <div class="card-body">
                                 <div class="mb-2 text-muted">UMKM Desa Hanura</div>
                                 <div class="chocolat-parent">
-                                    <img href="<?= site_url('lamanOverview') ?>" src="images/logohanura.png">
+                                    <img href="<?= site_url('lamanOverview') ?>" src="images/logohanura.png" alt="Logo Hanura">
                                 </div>
                             </div>
                         </div>
@@ -122,7 +124,7 @@
                             <div class="card-body">
                                 <div class="mb-2 text-muted">Bumdes Desa Hanura</div>
                                 <div class="chocolat-parent">
-                                    <img href="<?= site_url('lamanOverview') ?>" src="images/logohanura.png">
+                                    <img href="<?= site_url('lamanOverview') ?>" src="images/logohanura.png" alt="Logo Hanura">
                                 </div>
                             </div>
                         </div>
