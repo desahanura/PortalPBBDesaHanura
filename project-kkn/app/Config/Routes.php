@@ -38,6 +38,7 @@ $routes->get('daftarSudahBayar/', 'DaftarSudahBayar::index');
 $routes->get('daftarDihapus/', 'DaftarDihapus::index');
 $routes->get('daftarHarusDitagih/', 'DaftarHarusDitagih::index');
 $routes->get('daftarSpptTidakDitemukan/', 'DaftarSpptTidakDitemukan::index');
+$routes->get('settings/', 'Settings::index');
 
 // Import Excel
 $routes->post('noppbb/import', 'DaftarNopPbb::import'); //tambahkan filter
