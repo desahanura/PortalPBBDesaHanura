@@ -6,6 +6,6 @@ class Overview extends BaseController
 {
     public function index()
     {
-        echo view('overview');
+        echo view('lamanOverview/overview');
     }
 }

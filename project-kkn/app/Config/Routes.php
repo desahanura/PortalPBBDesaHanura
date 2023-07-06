@@ -29,10 +29,14 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Overview::index');
 
+// PORTAL
+$routes->get('/', 'UserPortal::index');
 
 // $routes->addRedirect('/', 'home');
+
+// PBB
+$routes->get('lamanOverview/', 'Overview::index');
 $routes->get('daftarNopPbb/', 'DaftarNopPbb::index');
 $routes->get('daftarSudahBayar/', 'DaftarSudahBayar::index');
 $routes->get('daftarDihapus/', 'DaftarDihapus::index');
