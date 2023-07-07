@@ -44,6 +44,14 @@ $routes->get('daftarHarusDitagih/', 'DaftarHarusDitagih::index');
 $routes->get('daftarSpptTidakDitemukan/', 'DaftarSpptTidakDitemukan::index');
 $routes->get('settings/', 'Settings::index');
 
+// CRUD NOPPBB 
+// $routes->get('daftarnoppbb', 'DaftarNopPbb::index');
+$routes->get('daftarnoppbb/add', 'DaftarNopPbb::create');
+$routes->post('daftarnoppbb', 'DaftarNopPbb::store'); //add
+$routes->get('daftarnoppbb/edit/(:num)', 'DaftarNopPbb::edit/$1'); //edit
+$routes->put('daftarnoppbb/(:any)', 'DaftarNopPbb::update/$1'); //edit
+$routes->delete('daftarnoppbb/(:segment)', 'DaftarNopPbb::destroy/$1'); //edit
+
 // Import Excel
 $routes->post('noppbb/import', 'DaftarNopPbb::import'); //tambahkan filter
 

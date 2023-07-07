@@ -8,7 +8,29 @@
 <section class="section">
     <div class="section-header">
         <h1>Daftar NOP PBB</h1>
+        <div class="section-header-button">
+            <a href="<?= site_url('daftarnoppbb/add') ?>" class="btn btn-success">Add Data</a>
+        </div>
     </div>
+
+    <?php if (session()->getFlashdata('error')) : ?>
+        <div class="alert alert-danger alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">x</button>
+                <b>Error !</b>
+                <?= session()->getFlashdata('error') ?>
+            </div>
+        </div>
+    <?php endif; ?>
+    <?php if (session()->getFlashdata('success')) : ?>
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">x</button>
+                <b>Success !</b>
+                <?= session()->getFlashdata('success') ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <div class="section-body">
         <div class="card">
@@ -39,12 +61,12 @@
             <div class="card-body table-responsive">
                 <table class="table table-striped table-md">
                     <tbody>
-                        <tr>
-                            <th>#</th>
+                        <tr class="text-center">
+                            <th>No.</th>
                             <th>Nomor Objek Pajak (NOP)</th>
                             <th>Tahun</th>
                             <th>Nama</th>
-                            <th>Alamat Wajib Pajak dan Objek Pajak</th>
+                            <th>Alamat Wajib</th>
                             <th>Besaran PBB</th>
                             <th>Denda</th>
                             <th>Tanggal Terdata</th>
@@ -56,13 +78,19 @@
                                 <td><?= $value->nop ?></td>
                                 <td><?= $value->tahun ?></td>
                                 <td><?= $value->nama ?></td>
-                                <td><?= $value->alamat ?></td>
+                                <td width=45%><?= $value->alamat ?></td>
                                 <td><?= $value->besaranPBB ?></td>
                                 <td><?= $value->denda ?></td>
-                                <td><?= $value->tanggal ?></td>
-                                <td class="text-center" style="width:15%">
-                                    <a href="" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
-                                    <a href="" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                <td width=15%><?= $value->tanggal ?></td>
+                                <td class="" style=" width:15%">
+                                    <a href="<?= site_url('daftarnoppbb/edit/' . $value->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                    <form action="<?= site_url('daftarnoppbb/' . $value->id) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini?')">
+                                        <?= csrf_field() ?>
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
