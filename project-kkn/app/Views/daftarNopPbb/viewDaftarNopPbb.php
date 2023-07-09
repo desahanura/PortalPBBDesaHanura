@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $(document).on("click", ".btnSudahBayar", function() {
+                var getselectedvalues = $(".mainTable input:checked").parents("tr").clone().appendTo($("secondTable tbody").add(getselectedvalues));
+            })
+        })
+    </script>
+</head>
+
+</html>
 <?= $this->extend('layout/default') ?>
 
 <?= $this->section('title') ?>
@@ -9,7 +23,10 @@
     <div class="section-header">
         <h1>Daftar NOP PBB</h1>
         <div class="section-header-button">
-            <a href="<?= site_url('daftarnoppbb/add') ?>" class="btn btn-success">Add Data</a>
+            <a href="<?= site_url('daftarnoppbb/add') ?>" class="btn btn-primary">Add Data</a>
+        </div>
+        <div class="section-header-button">
+            <a href="<?= site_url('daftarnoppbb/bayar') ?>" class="btnSudahBayar btn btn-success">Sudah Bayar</a>
         </div>
     </div>
 
@@ -59,9 +76,10 @@
                 </div>
             </div>
             <div class="card-body table-responsive">
-                <table class="table table-striped table-md">
+                <table class="mainTable table table-striped table-md">
                     <tbody>
                         <tr class="text-center">
+                            <th>Select</th>
                             <th>No.</th>
                             <th>Nomor Objek Pajak (NOP)</th>
                             <th>Tahun</th>
@@ -74,6 +92,12 @@
                         </tr>
                         <?php foreach ($tb_noppbb as $key => $value) : ?>
                             <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="checkbox<?= $key ?>" name="checkbox<?= $key ?>">
+                                        <label class="custom-control-label" for="checkbox<?= $key ?>"></label>
+                                    </div>
+                                </td>
                                 <td><?= $key + 1 ?></td>
                                 <td><?= $value->nop ?></td>
                                 <td><?= $value->tahun ?></td>
