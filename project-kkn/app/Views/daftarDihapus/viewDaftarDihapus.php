@@ -37,10 +37,11 @@
                 </div>
             </div>
             <div class="card-body table-responsive">
-                <table class="table table-striped table-md">
+                <table class="table table-striped table-md text-center">
                     <tbody>
                         <tr>
-                            <th>#</th>
+                            <th>Select</th>
+                            <th>No.</th>
                             <th>Nomor Objek Pajak (NOP)</th>
                             <th>Tahun</th>
                             <th>Nama</th>
@@ -50,7 +51,32 @@
                             <th>Tanggal Terdata</th>
                             <th>Action</th>
                         </tr>
-
+                        <?php foreach ($noppbb as $key => $value) : ?>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="checkbox<?= $key ?>" name="checkbox<?= $key ?>">
+                                        <label class="custom-control-label" for="checkbox<?= $key ?>"></label>
+                                    </div>
+                                </td>
+                                <td><?= $key + 1 ?></td>
+                                <td><?= $value->nop ?></td>
+                                <td><?= $value->tahun ?></td>
+                                <td><?= $value->nama ?></td>
+                                <td><?= $value->alamat ?></td>
+                                <td><?= $value->besaranPBB ?></td>
+                                <td><?= $value->denda ?></td>
+                                <td width=15%><?= $value->tanggal ?></td>
+                                <td class="text-center" style=" width:15%">
+                                    <a href="<?= site_url('daftardihapus/restore/' . $value->id) ?>" class="btn btn-info btn-sm">Restore</i></a>
+                                    <form action="<?= site_url('daftardihapus/delete2/' . $value->id) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini secara permanen?')">
+                                        <?= csrf_field() ?>
+                                        <!-- <input type="hidden" name="_method" value="DELETE"> -->
+                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

@@ -90,7 +90,7 @@
                             <th>Tanggal Terdata</th>
                             <th>Action</th>
                         </tr>
-                        <?php foreach ($tb_noppbb as $key => $value) : ?>
+                        <?php foreach ($noppbb as $key => $value) : ?>
                             <tr>
                                 <td>
                                     <div class="custom-control custom-checkbox">
@@ -106,11 +106,11 @@
                                 <td><?= $value->besaranPBB ?></td>
                                 <td><?= $value->denda ?></td>
                                 <td width=15%><?= $value->tanggal ?></td>
-                                <td class="" style=" width:15%">
+                                <td class="text-center" style=" width:15%">
                                     <a href="<?= site_url('daftarnoppbb/edit/' . $value->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
-                                    <form action="<?= site_url('daftarnoppbb/' . $value->id) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini?')">
+                                    <form action="<?= site_url('daftarnoppbb/delete/' . $value->id) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini?')">
                                         <?= csrf_field() ?>
-                                        <input type="hidden" name="_method" value="DELETE">
+                                        <!-- <input type="hidden" name="_method" value="DELETE"> -->
                                         <button class="btn btn-danger btn-sm">
                                             <i class="fas fa-trash"></i>
                                         </button>

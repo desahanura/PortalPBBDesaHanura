@@ -19,36 +19,36 @@
                 <h4>Edit Data NOP PBB</h4>
             </div>
             <div class="card-body col-md-6">
-                <form action="<?= site_url('daftarnoppbb/' . $nopPbb->id) ?>" method="post" autocomplete="off">
+                <form action="<?= site_url('daftarnoppbb/' . $noppbb->id) ?>" method="post" autocomplete="off">
                     <?= csrf_field() ?>
-                    <input type="hidden" name="_method" value="PUT">
+                    <!-- <input type="hidden" name="_method" value="PUT"> -->
                     <div class="form-group">
                         <label>NOP *</label>
-                        <input type="text" name="nop" value="<?= $nopPbb->nop ?>" class="form-control" required>
+                        <input type="text" name="nop" value="<?= $noppbb->nop ?>" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Tahun *</label>
-                        <input type="number" name="tahun" value="<?= $nopPbb->tahun ?>" min=" 1900" max="2099" step="1" value="2016" />
+                        <input type="number" name="tahun" value="<?= $noppbb->tahun ?>" min=" 1900" max="2099" step="1" value="2016" />
                     </div>
                     <div class="form-group">
                         <label>Nama *</label>
-                        <input type="text" name="nama" value="<?= $nopPbb->nama ?>" class="form-control" required>
+                        <input type="text" name="nama" value="<?= $noppbb->nama ?>" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Alamat *</label>
-                        <textarea name="alamat" cols="30" rows="10" class="form-control" required><?= $nopPbb->alamat ?></textarea>
+                        <textarea name="alamat" cols="30" rows="10" class="form-control" required><?= $noppbb->alamat ?></textarea>
                     </div>
                     <div class="form-group">
                         <label>Besaran PBB *</label>
-                        <input type="text" name="besaranPBB" value="<?= $nopPbb->besaranPBB ?>" class="form-control" required>
+                        <input type="text" name="besaranPBB" value="<?= $noppbb->besaranPBB ?>" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Denda *</label>
-                        <input type="text" name="denda" value="<?= $nopPbb->denda ?>" class="form-control" required>
+                        <input type="text" name="denda" value="<?= $noppbb->denda ?>" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Tanggal Terdata *</label>
-                        <input type="date" name="tanggal" value="<?= $nopPbb->tanggal ?>" class="form-control" required>
+                        <input type="date" name="tanggal" value="<?= $noppbb->tanggal ?>" class="form-control" required>
                     </div>
                     <div>
                         <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"> Save </i></button>

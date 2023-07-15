@@ -48,9 +48,18 @@ $routes->get('settings/', 'Settings::index');
 // $routes->get('daftarnoppbb', 'DaftarNopPbb::index');
 $routes->get('daftarnoppbb/add', 'DaftarNopPbb::create');
 $routes->post('daftarnoppbb', 'DaftarNopPbb::store'); //add
+$routes->post('daftarnoppbb/delete/(:any)', 'DaftarNopPbb::delete/$1'); //delete
 $routes->get('daftarnoppbb/edit/(:num)', 'DaftarNopPbb::edit/$1'); //edit
-$routes->put('daftarnoppbb/(:any)', 'DaftarNopPbb::update/$1'); //edit
-$routes->delete('daftarnoppbb/(:segment)', 'DaftarNopPbb::destroy/$1'); //edit
+$routes->post('daftarnoppbb/(:any)', 'DaftarNopPbb::update/$1'); //edit
+// $routes->delete('daftarnoppbb/(:segment)', 'DaftarNopPbb::destroy/$1'); //edit
+
+// restore
+$routes->get('daftardihapus/restore/(:any)', 'DaftarDihapus::restore/$1');
+$routes->get('daftardihapus/restore', 'DaftarDihapus::restore');
+$routes->delete('daftardihapus/delete2/(:any)', 'DaftarDihapus::delete2/$1');
+$routes->delete('daftardihapus/delete2/', 'DaftarDihapus::delete2');
+
+// delete permanent
 
 // Import Excel
 $routes->post('noppbb/import', 'DaftarNopPbb::import'); //tambahkan filter

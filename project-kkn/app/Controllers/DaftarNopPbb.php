@@ -5,16 +5,24 @@ namespace App\Controllers;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
+use App\Models\NOPModel;
+
 class DaftarNopPbb extends BaseController
 {
+    function __construct()
+    {
+        $this->nopModel = new NOPModel();
+    }
+
     public function index()
     {
+        $data['noppbb'] = $this->nopModel->findAll();
         // $builder = $this->db->table('tb_noppbb');
         // $query   = $builder->get()->getResult();
 
-        $query = $this->db->query("SELECT *FROM tb_noppbb");
+        // $query = $this->db->query("SELECT *FROM tb_noppbb");
 
-        $data['tb_noppbb'] = $query->getResult();
+        // $data['tb_noppbb'] = $query->getResult();
 
         return view('daftarNopPbb/viewDaftarNopPbb', $data);
     }
@@ -22,6 +30,10 @@ class DaftarNopPbb extends BaseController
     public function create()
     {
         return view('daftarNopPbb/addNopPbb');
+
+        $data = $this->request->getPost();
+        $this->nopModel->insert($data);
+        return redirect()->to(site_url('daftarNopPbb'))->with('success', 'Data berhasil Disimpan');
     }
 
     public function store()
@@ -36,33 +48,50 @@ class DaftarNopPbb extends BaseController
 
     public function edit($id = null)
     {
-        if ($id != null) {
-            $query = $this->db->table('tb_noppbb')->getWhere(['id' => $id]);
-            if ($query->resultID->num_rows > 0) {
-                $data['nopPbb'] = $query->getRow(); //getRow return object teratas
-                return view('daftarnoppbb/editNopPbb', $data);
-            } else {
-                throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-            }
+        $noppbb = $this->nopModel->where('id', $id)->first();
+        if (is_object($noppbb)) {
+            $data['noppbb'] = $noppbb;
+            return view('daftarnoppbb/editNopPbb', $data);
         } else {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
+        // if ($id != null) {
+        //     $query = $this->db->table('tb_noppbb')->getWhere(['id' => $id]);
+        //     if ($query->resultID->num_rows > 0) {
+        //         $data['nopPbb'] = $query->getRow(); //getRow return object teratas
+        //         return view('daftarnoppbb/editNopPbb', $data);
+        //     } else {
+        //         throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        //     }
+        // } else {
+        //     throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        // }
     }
 
-    public function update($id)
+    public function update($id = null)
     {
         $data = $this->request->getPost();
-        unset($data['_method']);
-
-        $this->db->table('tb_noppbb')->where(['id' => $id])->update($data);
+        $this->nopModel->update($id, $data);
         return redirect()->to(site_url('daftarNopPbb'))->with('success', "Data Berhasil Diperbaharui");
+        // $data = $this->request->getPost();
+        // unset($data['_method']);
+
+        // $this->db->table('tb_noppbb')->where(['id' => $id])->update($data);
+        // return redirect()->to(site_url('daftarNopPbb'))->with('success', "Data Berhasil Diperbaharui");
     }
 
-    public function destroy($id)
+    public function delete($id = null)
     {
-        $this->db->table('tb_noppbb')->where(['id' => $id])->delete();
-        return redirect()->to(site_url('daftarNopPbb'))->with('success', "Data Berhasil Dihapus");
+        // $this->nopModel->where('id', $id)->delete(); 
+        $this->nopModel->delete($id);
+        return redirect()->to(site_url('daftarNopPbb'))->with('success', 'Data Berhasil Dihapus');
     }
+
+    // public function destroy($id)
+    // {
+    //     $this->db->table('tb_noppbb')->where(['id' => $id])->delete();
+    // return redirect()->to(site_url('daftarNopPbb'))->with('success', "Data Berhasil Dihapus");
+    // }
 
     public function import()
     {
