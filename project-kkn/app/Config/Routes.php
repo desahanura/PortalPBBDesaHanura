@@ -36,13 +36,13 @@ $routes->get('/', 'UserPortal::index');
 // $routes->addRedirect('/', 'home');
 
 // PBB
-$routes->get('lamanOverview/', 'Overview::index');
-$routes->get('daftarNopPbb/', 'DaftarNopPbb::index');
-$routes->get('daftarSudahBayar/', 'DaftarSudahBayar::index');
-$routes->get('daftarDihapus/', 'DaftarDihapus::index');
-$routes->get('daftarHarusDitagih/', 'DaftarHarusDitagih::index');
-$routes->get('daftarSpptTidakDitemukan/', 'DaftarSpptTidakDitemukan::index');
-$routes->get('settings/', 'Settings::index');
+$routes->get('lamanOverview/', 'PbbController\Overview::index');
+$routes->get('daftarNopPbb/', 'PbbController\DaftarNopPbb::index');
+$routes->get('daftarSudahBayar/', 'PbbController\DaftarSudahBayar::index');
+$routes->get('daftarDihapus/', 'PbbController\DaftarDihapus::index');
+$routes->get('daftarHarusDitagih/', 'PbbController\DaftarHarusDitagih::index');
+$routes->get('daftarSpptTidakDitemukan/', 'PbbController\DaftarSpptTidakDitemukan::index');
+$routes->get('settings/', 'PbbController\Settings::index');
 
 // CRUD NOPPBB 
 // $routes->get('daftarnoppbb', 'DaftarNopPbb::index');

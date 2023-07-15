@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\PbbController;
+use App\Controllers\BaseController;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
@@ -24,7 +25,7 @@ class DaftarNopPbb extends BaseController
 
         // $data['tb_noppbb'] = $query->getResult();
 
-        return view('daftarNopPbb/viewDaftarNopPbb', $data);
+        return view('pbbView/daftarNopPbb/viewDaftarNopPbb', $data);
     }
 
     public function create()

@@ -1,9 +1,10 @@
 <?php
 
 
-namespace App\Controllers;
+namespace App\Controllers\PbbController;
 
 use App\Models\NOPModel;
+use App\Controllers\BaseController;
 
 class DaftarDihapus extends BaseController
 {
@@ -15,7 +16,7 @@ class DaftarDihapus extends BaseController
     public function index()
     {
         $data['noppbb'] = $this->nopModel->onlyDeleted()->findAll();
-        return view('daftarDihapus/viewDaftarDihapus', $data);
+        return view('pbbView/daftarDihapus/viewDaftarDihapus', $data);
     }
 
     public function restore($id = null)
