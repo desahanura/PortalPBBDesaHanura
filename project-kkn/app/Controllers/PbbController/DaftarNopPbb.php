@@ -89,6 +89,13 @@ class DaftarNopPbb extends BaseController
         return redirect()->to(site_url('daftarNopPbb'))->with('success', 'Data Berhasil Dihapus');
     }
 
+    public function sudahBayar()
+    {
+        $data = $this->request->getPost('checkbox');
+        dd($data);
+        // return redirect()->to(site_url('daftarNopPbb'))->with('success', 'Data Berhasil Dihapus');
+    }
+
     // public function destroy($id)
     // {
     //     $this->db->table('tb_noppbb')->where(['id' => $id])->delete();

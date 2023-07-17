@@ -32,6 +32,7 @@ $routes->set404Override();
 
 // PORTAL
 $routes->get('/', 'UserPortal::index');
+$routes->get('aboutUs/', 'UserPortal::viewAboutUs');
 
 // $routes->addRedirect('/', 'home');
 
@@ -48,16 +49,17 @@ $routes->get('settings/', 'PbbController\Settings::index');
 // $routes->get('daftarnoppbb', 'DaftarNopPbb::index');
 $routes->get('daftarnoppbb/add', 'PbbController\DaftarNopPbb::create');
 $routes->post('daftarnoppbb', 'PbbController\DaftarNopPbb::store'); //add
+$routes->post('daftarnoppbb/sudahBayar', 'PbbController\DaftarNopPbb::sudahBayar'); //
 $routes->post('daftarnoppbb/delete/(:any)', 'PbbController\DaftarNopPbb::delete/$1'); //delete
 $routes->get('daftarnoppbb/edit/(:num)', 'PbbController\DaftarNopPbb::edit/$1'); //edit
 $routes->post('daftarnoppbb/(:any)', 'PbbController\DaftarNopPbb::update/$1'); //edit
 // $routes->delete('daftarnoppbb/(:segment)', 'DaftarNopPbb::destroy/$1'); //edit
 
 // restore
-$routes->get('daftardihapus/restore/(:any)', 'PbbController\DaftarDihapus::restore/$1');
-$routes->get('daftardihapus/restore', 'PbbController\DaftarDihapus::restore');
-$routes->delete('daftardihapus/delete2/(:any)', 'PbbController\DaftarDihapus::delete2/$1');
-$routes->delete('daftardihapus/delete2/', 'PbbController\DaftarDihapus::delete2');
+$routes->get('daftardihapus/restore/(:any)', 'DaftarDihapus::restore/$1');
+$routes->get('daftardihapus/restore', 'DaftarDihapus::restore');
+$routes->delete('daftardihapus/delete2/(:any)', 'DaftarDihapus::delete2/$1');
+$routes->delete('daftardihapus/delete2/', 'DaftarDihapus::delete2');
 
 // delete permanent
 

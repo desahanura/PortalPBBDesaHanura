@@ -8,4 +8,9 @@ class UserPortal extends BaseController
     {
         echo view('viewUserPortal');
     }
+
+    public function viewAboutUs()
+    {
+        echo view('viewAboutUs');
+    }
 }

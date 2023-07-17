@@ -2,13 +2,13 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script>
+    <!-- <script>
         $(function() {
             $(document).on("click", ".btnSudahBayar", function() {
                 var getselectedvalues = $(".mainTable input:checked").parents("tr").clone().appendTo($("secondTable tbody").add(getselectedvalues));
             })
         })
-    </script>
+    </script> -->
 </head>
 
 </html>
@@ -26,7 +26,7 @@
             <a href="<?= site_url('daftarnoppbb/add') ?>" class="btn btn-primary">Add Data</a>
         </div>
         <div class="section-header-button">
-            <a href="<?= site_url('daftarnoppbb/bayar') ?>" class="btnSudahBayar btn btn-success">Sudah Bayar</a>
+            <input class="btnSudahBayar btn btn-success" type="submit" form="sudahBayar" value="Sudah Bayar"></input>
         </div>
     </div>
 
@@ -91,35 +91,39 @@
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
-                        <?php foreach ($noppbb as $key => $value) : ?>
-                            <tr>
-                                <td>
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="checkbox<?= $key ?>" name="checkbox<?= $key ?>">
-                                        <label class="custom-control-label" for="checkbox<?= $key ?>"></label>
-                                    </div>
-                                </td>
-                                <td><?= $key + 1 ?></td>
-                                <td><?= $value->nop ?></td>
-                                <td><?= $value->tahun ?></td>
-                                <td><?= $value->nama ?></td>
-                                <td width=45%><?= $value->alamat ?></td>
-                                <td><?= $value->besaranPBB ?></td>
-                                <td><?= $value->denda ?></td>
-                                <td width=15%><?= $value->tanggal ?></td>
-                                <td><?= $value->status ?></td>
-                                <td class="text-center" style=" width:15%">
-                                    <a href="<?= site_url('daftarnoppbb/edit/' . $value->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
-                                    <form action="<?= site_url('daftarnoppbb/delete/' . $value->id) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini?')">
-                                        <?= csrf_field() ?>
-                                        <!-- <input type="hidden" name="_method" value="DELETE"> -->
-                                        <button class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
+                        <form action="daftarnoppbb/sudahBayar" method="post" id="sudahBayar">
+                            <?php foreach ($noppbb as $key => $value) : ?>
+                                <tr>
+                                    <td>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox<?= $key ?>" name="checkbox[<?= $value->id ?>]" value="<?= $value->id ?>">
+                                            <label class="custom-control-label" for="checkbox<?= $key ?>"></label>
+                                        </div>
+
+                                    </td>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $value->nop ?></td>
+                                    <td><?= $value->tahun ?></td>
+                                    <td><?= $value->nama ?></td>
+                                    <td width=45%><?= $value->alamat ?></td>
+                                    <td><?= $value->besaran_pbb ?></td>
+                                    <td><?= $value->denda ?></td>
+                                    <td width=15%><?= $value->tanggal ?></td>
+                                    <td><?= $value->status_bayar ?></td>
+                                    <td class="text-center" style=" width:15%">
+                                        <a href="<?= site_url('daftarnoppbb/edit/' . $value->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                        <form action="<?= site_url('daftarnoppbb/delete/' . $value->id) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini?')">
+                                            <?= csrf_field() ?>
+                                            <!-- <input type="hidden" name="_method" value="DELETE"> -->
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </form>
                     </tbody>
                 </table>
             </div>

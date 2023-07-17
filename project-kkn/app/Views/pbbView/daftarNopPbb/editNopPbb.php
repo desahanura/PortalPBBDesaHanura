@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         <label>Besaran PBB *</label>
-                        <input type="text" name="besaranPBB" value="<?= $noppbb->besaranPBB ?>" class="form-control" required>
+                        <input type="text" name="besaran_pbb" value="<?= $noppbb->besaran_pbb ?>" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Denda *</label>
@@ -49,7 +49,7 @@
                     <div class="form-group">
                         <label>Status *</label>
                         <select name="status" id="status">
-                            <option value="<?= $noppbb->status ?>"><?= $noppbb->status ?></option>
+                            <option value="<?= $noppbb->status_bayar ?>"><?= $noppbb->status_bayar ?></option>
                             <option value="1">1</option>
                             <option value="0">0</option>
                         </select>

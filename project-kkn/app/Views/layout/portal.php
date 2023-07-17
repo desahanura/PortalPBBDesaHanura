@@ -34,7 +34,7 @@
             <nav class="navbar navbar-expand-lg main-navbar">
                 <div class="navbar-nav mr-auto">
                     <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a>
-                    <div class="collapse navbar-collapse" id="mynavbar">
+                    <!-- <div class="collapse navbar-collapse" id="mynavbar">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="">Home</a>
@@ -49,7 +49,7 @@
                                 <a class="nav-link" href="">Contact</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 <ul class="navbar-nav navbar-right">
                     <img alt="Logo Hanura" src="images/logohanura.png" width="30px">
@@ -75,61 +75,6 @@
             <!-- Main Content -->
             <div class="main-content">
                 <?= $this->renderSection('content') ?>
-
-                <!-- CARD -->
-                <div class="row">
-                    <!-- PBB -->
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>PBB</h4>
-                                <div class="card-header-action">
-                                    <a href="<?= site_url('lamanOverview') ?>" class="btn btn-primary">View</a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="mb-2 text-muted">Pencatatan PBB Desa Hanura</div>
-                                <div class="chocolat-parent">
-                                    <img href="<?= site_url('lamanOverview') ?>" src="images/logohanura.png" alt="Logo Hanura">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- UMKM -->
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>UMKM</h4>
-                                <div class="card-header-action">
-                                    <a href="<?= site_url('lamanOverview') ?>" class="btn btn-primary">View</a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="mb-2 text-muted">UMKM Desa Hanura</div>
-                                <div class="chocolat-parent">
-                                    <img href="<?= site_url('lamanOverview') ?>" src="images/logohanura.png" alt="Logo Hanura">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- BUMDES -->
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Bumdes</h4>
-                                <div class="card-header-action">
-                                    <a href="<?= site_url('lamanOverview') ?>" class="btn btn-primary">View</a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="mb-2 text-muted">Bumdes Desa Hanura</div>
-                                <div class="chocolat-parent">
-                                    <img href="<?= site_url('lamanOverview') ?>" src="images/logohanura.png" alt="Logo Hanura">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- FOOTER -->

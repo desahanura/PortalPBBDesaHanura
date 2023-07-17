@@ -39,7 +39,7 @@
                     </div>
                     <div class="form-group">
                         <label>Besaran PBB *</label>
-                        <input type="text" name="besaranPBB" class="form-control" required>
+                        <input type="text" name="besaran_pbb" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Denda *</label>

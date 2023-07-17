@@ -32,7 +32,7 @@ class Noppbb extends Migration
                 'type' => 'TEXT',
                 'constraint' => '100',
             ],
-            'besaranPBB' => [
+            'besaran_pbb' => [
                 'type' => 'varchar',
                 'constraint' => '100',
                 'null' => true,
@@ -46,10 +46,9 @@ class Noppbb extends Migration
                 'type' => 'DATE',
                 'null' => true,
             ],
-            'status' => [
-                'type' => 'varchar',
-                'constraint' => '100',
-                'null' => true,
+            'status_bayar' => [
+                'type' => 'BOOLEAN',
+                'default' => 0,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
