@@ -49,6 +49,7 @@
                             <th>Besaran PBB</th>
                             <th>Denda</th>
                             <th>Tanggal Terdata</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                         <?php foreach ($noppbb as $key => $value) : ?>
@@ -67,6 +68,7 @@
                                 <td><?= $value->besaranPBB ?></td>
                                 <td><?= $value->denda ?></td>
                                 <td width=15%><?= $value->tanggal ?></td>
+                                <td><?= $value->status ?></td>
                                 <td class="text-center" style=" width:15%">
                                     <a href="<?= site_url('daftardihapus/restore/' . $value->id) ?>" class="btn btn-info btn-sm">Restore</i></a>
                                     <form action="<?= site_url('daftardihapus/delete2/' . $value->id) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini secara permanen?')">

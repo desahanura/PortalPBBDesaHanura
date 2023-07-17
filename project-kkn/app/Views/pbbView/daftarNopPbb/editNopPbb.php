@@ -47,6 +47,14 @@
                         <input type="text" name="denda" value="<?= $noppbb->denda ?>" class="form-control" required>
                     </div>
                     <div class="form-group">
+                        <label>Status *</label>
+                        <select name="status" id="status">
+                            <option value="<?= $noppbb->status ?>"><?= $noppbb->status ?></option>
+                            <option value="1">1</option>
+                            <option value="0">0</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>Tanggal Terdata *</label>
                         <input type="date" name="tanggal" value="<?= $noppbb->tanggal ?>" class="form-control" required>
                     </div>

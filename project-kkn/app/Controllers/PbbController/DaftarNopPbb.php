@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers\PbbController;
+
 use App\Controllers\BaseController;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -17,7 +18,7 @@ class DaftarNopPbb extends BaseController
 
     public function index()
     {
-        $data['noppbb'] = $this->nopModel->findAll();
+        $data['noppbb'] = $this->nopModel->withDeleted()->findAll();
         // $builder = $this->db->table('tb_noppbb');
         // $query   = $builder->get()->getResult();
 
@@ -30,7 +31,7 @@ class DaftarNopPbb extends BaseController
 
     public function create()
     {
-        return view('daftarNopPbb/addNopPbb');
+        return view('pbbView/daftarNopPbb/addNopPbb');
 
         $data = $this->request->getPost();
         $this->nopModel->insert($data);
@@ -52,7 +53,7 @@ class DaftarNopPbb extends BaseController
         $noppbb = $this->nopModel->where('id', $id)->first();
         if (is_object($noppbb)) {
             $data['noppbb'] = $noppbb;
-            return view('daftarnoppbb/editNopPbb', $data);
+            return view('pbbView/daftarnoppbb/editNopPbb', $data);
         } else {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }

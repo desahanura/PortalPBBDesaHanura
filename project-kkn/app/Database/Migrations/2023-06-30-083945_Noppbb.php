@@ -46,6 +46,11 @@ class Noppbb extends Migration
                 'type' => 'DATE',
                 'null' => true,
             ],
+            'status' => [
+                'type' => 'varchar',
+                'constraint' => '100',
+                'null' => true,
+            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,

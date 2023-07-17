@@ -46,6 +46,14 @@
                         <input type="text" name="denda" class="form-control" required>
                     </div>
                     <div class="form-group">
+                        <label>Status *</label>
+                        <select name="status" id="status">
+                            <option value="">--Pilih Status--</option>
+                            <option value="1">1</option>
+                            <option value="0">0</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>Tanggal Terdata *</label>
                         <input type="date" name="tanggal" class="form-control" required>
                     </div>
