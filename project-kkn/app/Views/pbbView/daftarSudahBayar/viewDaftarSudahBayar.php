@@ -39,18 +39,49 @@
             <div class="card-body table-responsive">
                 <table class="table table-striped table-md">
                     <tbody>
-                        <tr>
-                            <th>#</th>
+                        <tr class="text-center">
+                            <th>Select</th>
+                            <th>No.</th>
                             <th>Nomor Objek Pajak (NOP)</th>
                             <th>Tahun</th>
                             <th>Nama</th>
-                            <th>Alamat Wajib Pajak dan Objek Pajak</th>
+                            <th>Alamat Wajib</th>
                             <th>Besaran PBB</th>
                             <th>Denda</th>
                             <th>Tanggal Terdata</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
 
+                        <?php foreach ($noppbb as $key => $value) : ?>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="checkbox<?= $key ?>" name="checkbox[]" value="<?= $value->id ?>">
+                                        <label class="custom-control-label" for="checkbox<?= $key ?>"></label>
+                                    </div>
+                                </td>
+                                <td><?= $key + 1 ?></td>
+                                <td><?= $value->nop ?></td>
+                                <td><?= $value->tahun ?></td>
+                                <td><?= $value->nama ?></td>
+                                <td width=45%><?= $value->alamat ?></td>
+                                <td><?= $value->besaran_pbb ?></td>
+                                <td><?= $value->denda ?></td>
+                                <td width=15%><?= $value->tanggal ?></td>
+                                <td><?= $value->status_bayar ?></td>
+                                <td class="text-center" style=" width:15%">
+                                    <a href="<?= site_url('daftarnoppbb/edit/' . $value->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                    <form action="<?= site_url('daftarnoppbb/delete/' . $value->id) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini?')">
+                                        <?= csrf_field() ?>
+                                        <!-- <input type="hidden" name="_method" value="DELETE"> -->
+                                        <button class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

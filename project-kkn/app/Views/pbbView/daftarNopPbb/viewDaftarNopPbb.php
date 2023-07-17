@@ -20,14 +20,18 @@
 
 <?= $this->section('content') ?>
 <section class="section">
+    <form action="daftarnoppbb/sudahBayar" method="post">
     <div class="section-header">
         <h1>Daftar NOP PBB</h1>
         <div class="section-header-button">
             <a href="<?= site_url('daftarnoppbb/add') ?>" class="btn btn-primary">Add Data</a>
         </div>
         <div class="section-header-button">
-            <input class="btnSudahBayar btn btn-success" type="submit" form="sudahBayar" value="Sudah Bayar"></input>
+            <button class="btn btn-success">Submit ke Sudah Bayar</button>
         </div>
+        <!-- <div class="section-header-button">
+            <input class="btnSudahBayar btn btn-success" type="submit" form="sudahBayar" value="Sudah Bayar"></input>
+        </div> -->
     </div>
 
     <?php if (session()->getFlashdata('error')) : ?>
@@ -91,16 +95,14 @@
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
-                        <form action="daftarnoppbb/sudahBayar" method="post" id="sudahBayar">
+                        <!-- <form action="daftarnoppbb/sudahBayar" method="post" id="sudahBayar"> -->
                             <?php foreach ($noppbb as $key => $value) : ?>
                                 <tr>
                                     <td>
-
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="checkbox<?= $key ?>" name="checkbox[<?= $value->id ?>]" value="<?= $value->id ?>">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox<?= $key ?>" name="checkbox[]" value="<?= $value->id ?>">
                                             <label class="custom-control-label" for="checkbox<?= $key ?>"></label>
                                         </div>
-
                                     </td>
                                     <td><?= $key + 1 ?></td>
                                     <td><?= $value->nop ?></td>
@@ -123,7 +125,7 @@
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
-                        </form>
+                        <!-- </form> -->
                     </tbody>
                 </table>
             </div>

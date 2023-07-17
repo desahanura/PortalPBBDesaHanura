@@ -49,7 +49,7 @@ $routes->get('settings/', 'PbbController\Settings::index');
 // $routes->get('daftarnoppbb', 'DaftarNopPbb::index');
 $routes->get('daftarnoppbb/add', 'PbbController\DaftarNopPbb::create');
 $routes->post('daftarnoppbb', 'PbbController\DaftarNopPbb::store'); //add
-$routes->post('daftarnoppbb/sudahBayar', 'PbbController\DaftarNopPbb::sudahBayar'); //
+$routes->post('daftarnoppbb/sudahBayar', 'PbbController\DaftarNopPbb::sudahBayar'); //update (sudah bayar)
 $routes->post('daftarnoppbb/delete/(:any)', 'PbbController\DaftarNopPbb::delete/$1'); //delete
 $routes->get('daftarnoppbb/edit/(:num)', 'PbbController\DaftarNopPbb::edit/$1'); //edit
 $routes->post('daftarnoppbb/(:any)', 'PbbController\DaftarNopPbb::update/$1'); //edit

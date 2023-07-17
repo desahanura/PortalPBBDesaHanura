@@ -48,7 +48,7 @@
                     </div>
                     <div class="form-group">
                         <label>Status *</label>
-                        <select name="status" id="status">
+                        <select name="status_bayar" id="status">
                             <option value="<?= $noppbb->status_bayar ?>"><?= $noppbb->status_bayar ?></option>
                             <option value="1">1</option>
                             <option value="0">0</option>

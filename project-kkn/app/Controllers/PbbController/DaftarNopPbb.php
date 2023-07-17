@@ -40,9 +40,19 @@ class DaftarNopPbb extends BaseController
 
     public function store()
     {
-        $data = $this->request->getPost();
+        $data = [
+            "nop" => $this->request->getPost('nop'),
+            "tahun" => $this->request->getPost('tahun'),
+            "nama" => $this->request->getPost('nama'),
+            "alamat" => $this->request->getPost('alamat'),
+            "besaran_pbb" => $this->request->getPost('besaran_pbb'),
+            "denda" => $this->request->getPost('denda'),
+            "tanggal" => $this->request->getPost('tanggal'),
+            "status_bayar" => $this->request->getPost('status'),
+            "created_at" => date('Y-m-d H:i:s'),
+            "updated_at" => date('Y-m-d H:i:s'),
+        ];
         $this->db->table('tb_noppbb')->insert($data);
-
         if ($this->db->affectedRows() > 0) {
             return redirect()->to(site_url('daftarNopPbb'))->with('success', 'Data Berhasil Ditambahkan');
         }
@@ -91,9 +101,12 @@ class DaftarNopPbb extends BaseController
 
     public function sudahBayar()
     {
-        $data = $this->request->getPost('checkbox');
-        dd($data);
-        // return redirect()->to(site_url('daftarNopPbb'))->with('success', 'Data Berhasil Dihapus');
+        $data = $this->request->getVar('checkbox');
+        foreach ($data as  $value) {
+            $this->nopModel->update($value, ['status_bayar' => '1']);
+        }
+        return redirect()->to(site_url('daftarNopPbb'))
+        ->with('success', "Data Berhasil Diperbaharui");
     }
 
     // public function destroy($id)

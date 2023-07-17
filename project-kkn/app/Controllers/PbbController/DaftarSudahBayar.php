@@ -15,8 +15,8 @@ class DaftarSudahBayar extends BaseController
     public function index()
     {
         $data['noppbb'] = $this->nopModel->withDeleted()->where('status_bayar', '1')->find();
-        dd($data['noppbb']);
+        // dd($data['noppbb']);
 
-        return view('pbbView/daftarSudahBayar/viewDaftarSudahBayar');
+        return view('pbbView/daftarSudahBayar/viewDaftarSudahBayar', $data);
     }
 }
