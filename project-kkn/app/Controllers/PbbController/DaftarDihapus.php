@@ -28,7 +28,7 @@ class DaftarDihapus extends BaseController
                 ->where(['id' => $id])
                 ->update();
             if ($this->db->affectedRows() > 0) {
-                return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Direstore');
+                return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Di-restore');
             }
         } else {
             $this->db->table(tb_noppbb)
@@ -36,7 +36,7 @@ class DaftarDihapus extends BaseController
                 ->where('deleted_at is NOT NULL', NULL, FALSE)
                 ->update();
             if ($this->db->affectedRows() > 0) {
-                return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Direstore');
+                return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Di-restore');
             }
         }
     }
