@@ -56,10 +56,10 @@ $routes->post('daftarnoppbb/(:any)', 'PbbController\DaftarNopPbb::update/$1'); /
 // $routes->delete('daftarnoppbb/(:segment)', 'DaftarNopPbb::destroy/$1'); //edit
 
 // restore
-$routes->get('daftardihapus/restore/(:any)', 'DaftarDihapus::restore/$1');
-$routes->get('daftardihapus/restore', 'DaftarDihapus::restore');
-$routes->delete('daftardihapus/delete2/(:any)', 'DaftarDihapus::delete2/$1');
-$routes->delete('daftardihapus/delete2/', 'DaftarDihapus::delete2');
+$routes->get('daftardihapus/restore/(:any)', 'PbbController\DaftarDihapus::restore/$1');
+$routes->get('daftardihapus/restore', 'PbbController\DaftarDihapus::restore');
+$routes->delete('daftardihapus/delete2/(:any)', 'PbbController\DaftarDihapus::delete2/$1');
+$routes->delete('daftardihapus/delete2/', 'PbbController\DaftarDihapus::delete2');
 
 // delete permanent
 

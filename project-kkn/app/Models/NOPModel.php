@@ -15,4 +15,10 @@ class NOPModel extends Model
     protected $updatedField     = 'updated_at';
     protected $deletedField     = 'deleted_at';
     protected $useSoftDeletes   = true;
+
+    public function forceDelete($id)
+    {
+        // Melakukan penghapusan permanen berdasarkan ID
+        $this->withDeleted()->where('id', $id)->purgeDeleted();
+    }
 }

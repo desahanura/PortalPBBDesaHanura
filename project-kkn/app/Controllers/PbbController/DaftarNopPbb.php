@@ -106,7 +106,7 @@ class DaftarNopPbb extends BaseController
             $this->nopModel->update($value, ['status_bayar' => '1']);
         }
         return redirect()->to(site_url('daftarNopPbb'))
-        ->with('success', "Data Berhasil Diperbaharui");
+            ->with('success', "Data Berhasil Diperbaharui");
     }
 
     // public function destroy($id)

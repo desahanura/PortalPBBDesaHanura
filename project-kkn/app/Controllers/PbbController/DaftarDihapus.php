@@ -1,10 +1,10 @@
 <?php
 
-
 namespace App\Controllers\PbbController;
 
-use App\Models\NOPModel;
 use App\Controllers\BaseController;
+
+use App\Models\NOPModel;
 
 class DaftarDihapus extends BaseController
 {
@@ -25,10 +25,10 @@ class DaftarDihapus extends BaseController
         if ($id != null) {
             $this->db->table('tb_noppbb')
                 ->set('deleted_at', null, true)
-                ->where(['id' => $id]) 
+                ->where(['id' => $id])
                 ->update();
             if ($this->db->affectedRows() > 0) {
-                return redirect()->to(site_url('daftarDihapus/'))->with('success', 'Data Berhasil Direstore');
+                return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Direstore');
             }
         } else {
             $this->db->table(tb_noppbb)
@@ -36,19 +36,25 @@ class DaftarDihapus extends BaseController
                 ->where('deleted_at is NOT NULL', NULL, FALSE)
                 ->update();
             if ($this->db->affectedRows() > 0) {
-                return redirect()->to(site_url('daftarDihapus/'))->with('success', 'Data Berhasil Direstore');
+                return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Direstore');
             }
         }
     }
 
     public function delete2($id = null)
     {
-        if ($id != null) {
-            $this->nopModel->delete($id);
-            return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Dihapus');
+        $this->nopModel = new NOPModel();
+        if ($this->request->getMethod() === 'delete') {
+            if ($id != null) {
+                $this->nopModel->forceDelete($id, true); // Menghapus data secara permanen
+                return redirect()->to(site_url('daftarDihapus/'))->with('success', 'Data Berhasil Dihapus Permanen');
+            }
+            // else {
+            //     $this->nopModel->purgeDeleted(); // Menghapus semua data yang telah dihapus secara permanen
+            //     return redirect()->to(site_url('daftarDihapus/'))->with('success', 'Data Berhasil Dihapus Permanen');
+            // }
         } else {
-            $this->nopModel->purgeDeleted();
-            return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Dihapus Permanen');
+            throw new \CodeIgniter\Exceptions\PageNotFoundException();
         }
     }
 }
