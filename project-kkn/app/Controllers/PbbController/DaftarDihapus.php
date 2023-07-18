@@ -31,12 +31,12 @@ class DaftarDihapus extends BaseController
                 return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Direstore');
             }
         } else {
-            $this->db->table(tb_noppbb)
+            $this->db->table('tb_noppbb')
                 ->set('deleted_at', null, true)
                 ->where('deleted_at is NOT NULL', NULL, FALSE)
                 ->update();
             if ($this->db->affectedRows() > 0) {
-                return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Direstore');
+                return redirect()->to(site_url('daftarDihapus'))->with('success', 'Semua Data Berhasil Direstore');
             }
         }
     }
@@ -48,11 +48,10 @@ class DaftarDihapus extends BaseController
             if ($id != null) {
                 $this->nopModel->forceDelete($id, true); // Menghapus data secara permanen
                 return redirect()->to(site_url('daftarDihapus/'))->with('success', 'Data Berhasil Dihapus Permanen');
+            } else {
+                $this->nopModel->purgeDeleted(); // Menghapus semua data yang telah dihapus secara permanen
+                return redirect()->to(site_url('daftarDihapus/'))->with('success', 'Semua Data Berhasil Dihapus Permanen');
             }
-            // else {
-            //     $this->nopModel->purgeDeleted(); // Menghapus semua data yang telah dihapus secara permanen
-            //     return redirect()->to(site_url('daftarDihapus/'))->with('success', 'Data Berhasil Dihapus Permanen');
-            // }
         } else {
             throw new \CodeIgniter\Exceptions\PageNotFoundException();
         }

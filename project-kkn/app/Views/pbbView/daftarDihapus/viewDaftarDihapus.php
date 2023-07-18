@@ -39,6 +39,20 @@
                             <i class="fas fa-file-import"></i> Upload File</a>
                     </div>
                 </div>
+                <div class="float-right ml-auto">
+                    <a href="<?= site_url('daftardihapus/restore/') ?>" class="btn btn-info ">Restore All</i></a>
+                    <form action="<?= site_url('daftardihapus/delete2/') ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus semua data ini secara permanen?')">
+                        <?= csrf_field() ?>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn btn-danger btn-sm">Delete All Permanently</button>
+                    </form>
+                    <!-- <a href="<?= site_url('daftardihapus/restore/') ?>" class="btn btn-info">Restore All</a>
+                    <form action="<?= site_url('daftardihapus/delete2/') ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini secara permanen?')">
+                        <?= csrf_field() ?>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <a href="<?= site_url('daftardihapus/delete2/') ?>" class="btn btn-danger">Delete All Permanently</a>
+                    </form> -->
+                </div>
             </div>
             <div class="card-body table-responsive">
                 <table class="table table-striped table-md text-center">
