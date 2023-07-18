@@ -49,8 +49,8 @@
                         <label>Status *</label>
                         <select name="status_bayar" id="status">
                             <option value="">--Pilih Status--</option>
-                            <option value="1">1</option>
-                            <option value="0">0</option>
+                            <option value="1">Sudah Bayar</option>
+                            <option value="0">Belum Bayar</option>
                         </select>
                     </div>
                     <div class="form-group">

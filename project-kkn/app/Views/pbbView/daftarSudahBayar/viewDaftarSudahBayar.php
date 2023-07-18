@@ -69,7 +69,13 @@
                                 <td><?= $value->besaran_pbb ?></td>
                                 <td><?= $value->denda ?></td>
                                 <td width=15%><?= $value->tanggal ?></td>
-                                <td><?= $value->status_bayar ?></td>
+                                <td>
+                                    <?php if ($value->status_bayar == "1") {
+                                        echo "<p style='color:green;'>Sudah Bayar</p>";
+                                    } else {
+                                        echo "<p style='color:red;'>Belum Bayar</p>";
+                                    } ?>
+                                </td>
                                 <td class="text-center" style=" width:15%">
                                     <a href="<?= site_url('daftarnoppbb/edit/' . $value->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
                                     <form action="<?= site_url('daftarnoppbb/delete/' . $value->id) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini?')">
