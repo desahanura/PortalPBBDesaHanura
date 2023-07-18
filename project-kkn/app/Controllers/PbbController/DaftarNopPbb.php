@@ -48,7 +48,7 @@ class DaftarNopPbb extends BaseController
             "besaran_pbb" => $this->request->getPost('besaran_pbb'),
             "denda" => $this->request->getPost('denda'),
             "tanggal" => $this->request->getPost('tanggal'),
-            "status_bayar" => $this->request->getPost('status'),
+            "status_bayar" => $this->request->getPost('status_bayar'),
             "created_at" => date('Y-m-d H:i:s'),
             "updated_at" => date('Y-m-d H:i:s'),
         ];

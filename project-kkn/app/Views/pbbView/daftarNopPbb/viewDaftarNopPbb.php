@@ -28,7 +28,7 @@
                 <a href="<?= site_url('daftarnoppbb/add') ?>" class="btn btn-primary">Add Data</a>
             </div>
             <div class="section-header-button">
-                <button class="btn btn-success">Submit ke Sudah Bayar</button>
+                <button class="btn btn-success">Submit ke Daftar Sudah Bayar</button>
             </div>
             <!-- <div class="section-header-button">
                 <input class="btnSudahBayar btn btn-success" type="submit" form="sudahBayar" value="Sudah Bayar"></input>
