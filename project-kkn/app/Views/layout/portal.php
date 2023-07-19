@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/template/assets/css/components.css">
 </head>
 
-<body class="sidebar-mini">
+<body>
     <script id="__bs_script__">
         //<![CDATA[
         document.write("<script async src='/browser-sync/browser-sync-client.js?v=2.27.10'><\/script>".replace("HOST", location.hostname));

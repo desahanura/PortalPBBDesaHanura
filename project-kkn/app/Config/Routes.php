@@ -33,11 +33,13 @@ $routes->set404Override();
 // PORTAL
 $routes->get('/', 'UserPortal::index');
 $routes->get('aboutUs/', 'UserPortal::viewAboutUs');
+$routes->get('copyright/', 'UserPortal::viewCopyright');
+$routes->get('contact/', 'UserPortal::viewContact');
 
 // $routes->addRedirect('/', 'home');
 
 // PBB
-$routes->get('lamanOverview/', 'PbbController\Overview::index');
+$routes->get('overview/', 'PbbController\Overview::index');
 $routes->get('daftarNopPbb/', 'PbbController\DaftarNopPbb::index');
 $routes->get('daftarSudahBayar/', 'PbbController\DaftarSudahBayar::index');
 $routes->get('daftarDihapus/', 'PbbController\DaftarDihapus::index');

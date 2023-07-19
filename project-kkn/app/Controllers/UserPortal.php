@@ -13,4 +13,14 @@ class UserPortal extends BaseController
     {
         echo view('viewAboutUs');
     }
+
+    public function viewCopyright()
+    {
+        echo view('viewCopyright');
+    }
+
+    public function viewContact()
+    {
+        echo view('viewContact');
+    }
 }

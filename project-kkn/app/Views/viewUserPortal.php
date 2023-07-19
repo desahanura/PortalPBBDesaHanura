@@ -18,13 +18,13 @@
                 <div class="card-header">
                     <h4>PBB</h4>
                     <div class="card-header-action">
-                        <a href="<?= site_url('lamanOverview') ?>" class="btn btn-primary">View</a>
+                        <a href="<?= site_url('overview') ?>" class="btn btn-primary">View</a>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="mb-2 text-muted">Pencatatan PBB Desa Hanura</div>
                     <div class="chocolat-parent">
-                        <img href="<?= site_url('lamanOverview') ?>" src="images/logohanura.png" alt="Logo Hanura">
+                        <img href="<?= site_url('overview') ?>" src="images/logohanura.png" alt="Logo Hanura">
                     </div>
                 </div>
             </div>
@@ -35,13 +35,13 @@
                 <div class="card-header">
                     <h4>UMKM</h4>
                     <div class="card-header-action">
-                        <a href="<?= site_url('lamanOverview') ?>" class="btn btn-primary">View</a>
+                        <a href="<?= site_url('overview') ?>" class="btn btn-primary">View</a>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="mb-2 text-muted">UMKM Desa Hanura</div>
                     <div class="chocolat-parent">
-                        <img href="<?= site_url('lamanOverview') ?>" src="images/logohanura.png" alt="Logo Hanura">
+                        <img href="<?= site_url('overview') ?>" src="images/logohanura.png" alt="Logo Hanura">
                     </div>
                 </div>
             </div>
@@ -52,13 +52,13 @@
                 <div class="card-header">
                     <h4>Bumdes</h4>
                     <div class="card-header-action">
-                        <a href="<?= site_url('lamanOverview') ?>" class="btn btn-primary">View</a>
+                        <a href="<?= site_url('overview') ?>" class="btn btn-primary">View</a>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="mb-2 text-muted">Bumdes Desa Hanura</div>
                     <div class="chocolat-parent">
-                        <img href="<?= site_url('lamanOverview') ?>" src="images/logohanura.png" alt="Logo Hanura">
+                        <img href="<?= site_url('overview') ?>" src="images/logohanura.png" alt="Logo Hanura">
                     </div>
                 </div>
             </div>
