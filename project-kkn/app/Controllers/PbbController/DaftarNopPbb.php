@@ -18,14 +18,10 @@ class DaftarNopPbb extends BaseController
 
     public function index()
     {
-        $data['noppbb'] = $this->nopModel->withDeleted()->findAll();
-        // $builder = $this->db->table('tb_noppbb');
-        // $query   = $builder->get()->getResult();
-
-        // $query = $this->db->query("SELECT *FROM tb_noppbb");
-
-        // $data['tb_noppbb'] = $query->getResult();
-
+        // $data['noppbb'] = $this->nopModel->withDeleted()->findAll();
+        $keyword = $this->request->getGet('keyword');
+        $data = $this->nopModel->withDeleted()->getPaginated(10, $keyword);
+        // $data['pager'] = $this->nopModel->pager;
         return view('pbbView/daftarNopPbb/viewDaftarNopPbb', $data);
     }
 

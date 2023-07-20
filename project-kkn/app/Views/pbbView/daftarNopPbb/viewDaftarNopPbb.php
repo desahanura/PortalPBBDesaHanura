@@ -97,7 +97,10 @@
                                 <th>Action</th>
                             </tr>
                             <!-- <form action="daftarnoppbb/sudahBayar" method="post" id="sudahBayar"> -->
-                            <?php foreach ($noppbb as $key => $value) : ?>
+                            <?php
+                            $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                            $no = 1 + (10 * ($page - 1));
+                            foreach ($noppbb as $key => $value) : ?>
                                 <tr>
                                     <td>
                                         <div class="custom-control custom-checkbox">
@@ -105,7 +108,7 @@
                                             <label class="custom-control-label" for="checkbox<?= $key ?>"></label>
                                         </div>
                                     </td>
-                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $no++ ?></td>
                                     <td><?= $value->nop ?></td>
                                     <td><?= $value->tahun ?></td>
                                     <td><?= $value->nama ?></td>
@@ -135,6 +138,7 @@
                             <!-- </form> -->
                         </tbody>
                     </table>
+                    <?= $pager->links('default', 'pagination') ?>
                 </div>
             </div>
         </div>
