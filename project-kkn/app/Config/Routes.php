@@ -30,6 +30,12 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
+// auth
+$routes->get('login', 'PbbController\Auth::login');
+$routes->get('auth', 'PbbController\Auth::index');
+$routes->post('auth/loginProcess', 'PbbController\Auth::loginProcess');
+$routes->get('auth/logout', 'PbbController\Auth::logout');
+
 // PORTAL
 $routes->get('/', 'UserPortal::index');
 $routes->get('aboutUs/', 'UserPortal::viewAboutUs');

@@ -18,7 +18,7 @@
                 <div class="card-header">
                     <h4>PBB</h4>
                     <div class="card-header-action">
-                        <a href="<?= site_url('overview') ?>" class="btn btn-primary">View</a>
+                        <a href="<?= site_url('login') ?>" class="btn btn-primary">View</a>
                     </div>
                 </div>
                 <div class="card-body">
