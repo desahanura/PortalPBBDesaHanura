@@ -20,10 +20,40 @@
 
 <?= $this->section('content') ?>
 <section class="section">
+    <!-- Searching -->
+    <div class="section-header">
+        <div>
+            <h1>Daftar NOP PBB</h1>
+        </div><br>
+        <div class="card m-1">
+            <div class="card-header p-1">
+                <form action="" method="get" autocomplete="off">
+                    <div class="float-left">
+                        <input type="text" name="keyword" value="" class="form-control" style="width:250pt" placeholder="Cari Data">
+                    </div>
+                    <div class="float-right ml-2">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+                <div class="dropdown d-inline ml-2">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-file-upload"></i> Import Excel
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item has-icon" href="<?= base_url('Example.xlsx') ?>">
+                            <i class="fas fa-file-excel"></i> Download Example</a>
+                        <a class="dropdown-item has-icon" href="#" data-toggle="modal" data-target="#modal-import-noppbb">
+                            <i class="fas fa-file-import"></i> Upload File</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Searching -->
+
     <form action="daftarnoppbb/sudahBayar" method="post">
         <?= csrf_field() ?>
         <div class="section-header">
-            <h1>Daftar NOP PBB</h1>
             <div class="section-header-button">
                 <a href="<?= site_url('daftarnoppbb/add') ?>" class="btn btn-primary">Add Data</a>
             </div>
@@ -58,27 +88,6 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Daftar Seluruh Objek Pajak PBB Desa Hanura</h4>
-                </div>
-                <div class="card-header">
-                    <form action="" method="get" autocomplete="off">
-                        <div class="float-left">
-                            <input type="text" name="keyword" value="" class="form-control" style="width:155pt" placeholder="Keyword Pencarian">
-                        </div>
-                        <div class="float-right ml-2">
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                        </div>
-                    </form>
-                    <div class="dropdown d-inline ml-2">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-file-upload"></i> Import Excel
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item has-icon" href="<?= base_url('Example.xlsx') ?>">
-                                <i class="fas fa-file-excel"></i> Download Example</a>
-                            <a class="dropdown-item has-icon" href="#" data-toggle="modal" data-target="#modal-import-noppbb">
-                                <i class="fas fa-file-import"></i> Upload File</a>
-                        </div>
-                    </div>
                 </div>
                 <div class="card-body table-responsive">
                     <table class="mainTable table table-striped table-md">

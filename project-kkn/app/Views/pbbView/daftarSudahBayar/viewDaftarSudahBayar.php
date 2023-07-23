@@ -7,18 +7,14 @@
 <?= $this->section('content') ?>
 <section class="section">
     <div class="section-header">
-        <h1>Daftar Sudah Bayar</h1>
-    </div>
-
-    <div class="section-body">
-        <div class="card">
-            <div class="card-header">
-                <h4>Daftar Sudah Bayar PBB Desa Hanura</h4>
-            </div>
-            <div class="card-header">
+        <div>
+            <h1>Daftar Sudah Bayar</h1>
+        </div><br>
+        <div class="card m-1">
+            <div class="card-header p-1">
                 <form action="" method="get" autocomplete="off">
                     <div class="float-left">
-                        <input type="text" name="keyword" value="" class="form-control" style="width:155pt" placeholder="Keyword Pencarian">
+                        <input type="text" name="keyword" value="" class="form-control" style="width:250pt" placeholder="Cari Data">
                     </div>
                     <div class="float-right ml-2">
                         <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
@@ -35,6 +31,14 @@
                             <i class="fas fa-file-import"></i> Upload File</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-body">
+        <div class="card">
+            <div class="card-header">
+                <h4>Daftar Sudah Bayar PBB Desa Hanura</h4>
             </div>
             <div class="card-body table-responsive">
                 <table class="table table-striped table-md">
