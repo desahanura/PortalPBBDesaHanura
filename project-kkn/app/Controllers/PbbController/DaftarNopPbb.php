@@ -101,9 +101,20 @@ class DaftarNopPbb extends BaseController
         foreach ($data as  $value) {
             $this->nopModel->update($value, ['status_bayar' => '1']);
         }
-        return redirect()->to(site_url('daftarNopPbb'))
-            ->with('success', "Data Berhasil Diperbaharui");
+        return redirect()->to(site_url('daftarHarusDitagih'))
+        ->with('success', "Data Berhasil Diperbaharui");
     }
+
+    public function belumBayar()
+    {
+        $data = $this->request->getVar('checkbox');
+        foreach ($data as  $value) {
+            $this->nopModel->update($value, ['status_bayar' => '0']);
+        }
+        return redirect()->to(site_url('daftarSudahBayar'))
+        ->with('success', "Data Berhasil Diperbaharui");
+    }
+
 
     // public function destroy($id)
     // {
