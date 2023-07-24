@@ -42,7 +42,7 @@
             </div>
             <div class="card-body table-responsive">
                 <table class="table table-striped table-md">
-                    <tbody>
+                    <thead>
                         <tr>
                             <th>#</th>
                             <th>Nomor Objek Pajak (NOP)</th>
@@ -54,7 +54,8 @@
                             <th>Tanggal Terdata</th>
                             <th>Action</th>
                         </tr>
-
+                    </thead>
+                    <tbody>
                     </tbody>
                 </table>
             </div>

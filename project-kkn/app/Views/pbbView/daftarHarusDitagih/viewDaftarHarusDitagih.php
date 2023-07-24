@@ -106,10 +106,10 @@
                                         } ?></td>
                                     <td class="text-center" style=" width:15%">
                                         <a href="<?= site_url('daftarnoppbb/edit/' . $value->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
-                                        <form action="<?= site_url('daftarnoppbb/delete/' . $value->id) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini?')">
+                                        <form action="<?= site_url('daftarnoppbb/delete/' . $value->id) ?>" method="POST" class="d-inline" id="del-<?= $value->id ?>">
                                             <?= csrf_field() ?>
                                             <!-- <input type="hidden" name="_method" value="DELETE"> -->
-                                            <button class="btn btn-danger btn-sm">
+                                            <button class="btn btn-danger btn-sm" data-confirm="Hapus Data | Apakah Anda yakin ingin menghapus data ini?" data-confirm-yes="submitDel(<?= $value->id ?>)">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </form>

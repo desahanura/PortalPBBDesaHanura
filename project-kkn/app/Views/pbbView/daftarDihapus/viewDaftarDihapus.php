@@ -99,10 +99,10 @@
                                 </td>
                                 <td class="text-center" style=" width:15%">
                                     <a href="<?= site_url('daftardihapus/hapus/' . $value->id) ?>" class="btn btn-info btn-sm">Hapus</i></a>
-                                    <form action="<?= site_url('daftardihapus/hapusPermanen/' . $value->id) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini secara permanen?')">
+                                    <form action="<?= site_url('daftardihapus/hapusPermanen/' . $value->id) ?>" method="POST" class="d-inline" id="del-<?= $value->id ?>">
                                         <?= csrf_field() ?>
                                         <input type="hidden" name="_method" value="DELETE">
-                                        <button class="btn btn-danger btn-sm">Hapus Permanen</button>
+                                        <button class="btn btn-danger btn-sm" data-confirm="Hapus Data | Apakah Anda yakin ingin menghapus data ini?" data-confirm-yes="submitDel(<?= $value->id ?>)">Hapus Permanen</button>
                                     </form>
                                 </td>
                             </tr>
