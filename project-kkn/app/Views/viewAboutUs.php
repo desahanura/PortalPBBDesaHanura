@@ -7,29 +7,29 @@
 <?= $this->section('content') ?>
 <section class="section">
     <div class="section-header">
-        <h1>ABOUT US</h1>
+        <h1>About Us</h1>
     </div>
 
     <!-- CARD -->
     <div class="row">
-        <!-- Collaborator -->
+        <!-- Contributor -->
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <h4>Collaborator</h4>
+                    <h4>Contributor</h4>
                 </div>
                 <div class="card-body">
                     <i>Tim IT KKN Unila Periode II Tahun 2023 Desa Hanura</i>
                     <!-- foto -->
                     <div class="row">
                         <div class="col">
-                            <img src="images/collaborator/collaborator_aniisah.png" alt="collaborator" style="max-width: 200px;">
+                            <img src="images/contributor/contributor_aniisah.png" alt="contributor" style="max-width: 200px;">
                         </div>
                         <div class="col">
-                            <img src="images/collaborator/collaborator_aniisah.png" alt="collaborator" style="max-width: 200px;">
+                            <img src="images/contributor/contributor_aniisah.png" alt="contributor" style="max-width: 200px;">
                         </div>
                         <div class="col">
-                            <img src="images/collaborator/collaborator_aniisah.png" alt="collaborator" style="max-width: 200px;">
+                            <img src="images/contributor/contributor_aniisah.png" alt="contributor" style="max-width: 200px;">
                         </div>
                     </div>
                     <!-- nama -->
