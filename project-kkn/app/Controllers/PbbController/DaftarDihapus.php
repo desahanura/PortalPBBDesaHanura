@@ -19,7 +19,7 @@ class DaftarDihapus extends BaseController
         return view('pbbView/daftarDihapus/viewDaftarDihapus', $data);
     }
 
-    public function restore($id = null)
+    public function hapus($id = null)
     {
         $this->db = \Config\Database::connect();
         if ($id != null) {
@@ -28,7 +28,7 @@ class DaftarDihapus extends BaseController
                 ->where(['id' => $id])
                 ->update();
             if ($this->db->affectedRows() > 0) {
-                return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Di-restore');
+                return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Dihapus');
             }
         } else {
             $this->db->table('tb_noppbb')
@@ -36,12 +36,12 @@ class DaftarDihapus extends BaseController
                 ->where('deleted_at is NOT NULL', NULL, FALSE)
                 ->update();
             if ($this->db->affectedRows() > 0) {
-                return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Di-restore');
+                return redirect()->to(site_url('daftarDihapus'))->with('success', 'Data Berhasil Dihapus');
             }
         }
     }
 
-    public function delete2($id = null)
+    public function hapusPermanen($id = null)
     {
         $this->nopModel = new NOPModel();
         if ($this->request->getMethod() === 'delete') {

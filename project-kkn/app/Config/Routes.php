@@ -64,11 +64,11 @@ $routes->get('daftarnoppbb/edit/(:num)', 'PbbController\DaftarNopPbb::edit/$1');
 $routes->post('daftarnoppbb/(:any)', 'PbbController\DaftarNopPbb::update/$1'); //edit
 // $routes->delete('daftarnoppbb/(:segment)', 'DaftarNopPbb::destroy/$1'); //edit
 
-// restore
-$routes->get('daftardihapus/restore/(:any)', 'PbbController\DaftarDihapus::restore/$1');
-$routes->get('daftardihapus/restore', 'PbbController\DaftarDihapus::restore');
-$routes->delete('daftardihapus/delete2/(:any)', 'PbbController\DaftarDihapus::delete2/$1');
-$routes->delete('daftardihapus/delete2/', 'PbbController\DaftarDihapus::delete2');
+// hapus
+$routes->get('daftardihapus/hapus/(:any)', 'PbbController\DaftarDihapus::hapus/$1');
+$routes->get('daftardihapus/hapus', 'PbbController\DaftarDihapus::hapus');
+$routes->delete('daftardihapus/hapusPermanen/(:any)', 'PbbController\DaftarDihapus::hapusPermanen/$1');
+$routes->delete('daftardihapus/hapusPermanen/', 'PbbController\DaftarDihapus::hapusPermanen');
 
 // delete permanent
 

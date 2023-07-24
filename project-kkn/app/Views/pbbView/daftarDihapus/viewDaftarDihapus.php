@@ -44,17 +44,17 @@
             <div class="card-header">
                 <h4>Daftar Dihapus PBB Desa Hanura</h4>
                 <div class="float-right ml-auto">
-                    <a href="<?= site_url('daftardihapus/restore/') ?>" class="btn btn-info ">Restore All</i></a>
-                    <form action="<?= site_url('daftardihapus/delete2/') ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus semua data ini secara permanen?')">
+                    <a href="<?= site_url('daftardihapus/hapus/') ?>" class="btn btn-info ">Hapus Semua</i></a>
+                    <form action="<?= site_url('daftardihapus/hapusPermanen/') ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus semua data ini secara permanen?')">
                         <?= csrf_field() ?>
                         <input type="hidden" name="_method" value="DELETE">
-                        <button class="btn btn-danger btn-sm">Delete All Permanently</button>
+                        <button class="btn btn-danger btn-sm">Hapus Permanen Semua</button>
                     </form>
-                    <!-- <a href="<?= site_url('daftardihapus/restore/') ?>" class="btn btn-info">Restore All</a>
-                    <form action="<?= site_url('daftardihapus/delete2/') ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini secara permanen?')">
+                    <!-- <a href="<?= site_url('daftardihapus/hapus/') ?>" class="btn btn-info">Hapus Semua</a>
+                    <form action="<?= site_url('daftardihapus/hapusPermanen/') ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini secara permanen?')">
                         <?= csrf_field() ?>
                         <input type="hidden" name="_method" value="DELETE">
-                        <a href="<?= site_url('daftardihapus/delete2/') ?>" class="btn btn-danger">Delete All Permanently</a>
+                        <a href="<?= site_url('daftardihapus/hapusPermanen/') ?>" class="btn btn-danger">Delete All Permanently</a>
                     </form> -->
                 </div>
             </div>
@@ -98,11 +98,11 @@
                                     } ?>
                                 </td>
                                 <td class="text-center" style=" width:15%">
-                                    <a href="<?= site_url('daftardihapus/restore/' . $value->id) ?>" class="btn btn-info btn-sm">Restore</i></a>
-                                    <form action="<?= site_url('daftardihapus/delete2/' . $value->id) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini secara permanen?')">
+                                    <a href="<?= site_url('daftardihapus/hapus/' . $value->id) ?>" class="btn btn-info btn-sm">Hapus</i></a>
+                                    <form action="<?= site_url('daftardihapus/hapusPermanen/' . $value->id) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini secara permanen?')">
                                         <?= csrf_field() ?>
                                         <input type="hidden" name="_method" value="DELETE">
-                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                        <button class="btn btn-danger btn-sm">Hapus Permanen</button>
                                     </form>
                                 </td>
                             </tr>
