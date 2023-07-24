@@ -3,10 +3,10 @@
 namespace App\Controllers\PbbController;
 use App\Controllers\BaseController;
 
-class Overview extends BaseController
+class Dashboard extends BaseController
 {
     public function index()
     {
-        echo view('pbbView/lamanOverview/overview');
+        echo view('pbbView/lamanDashboard/dashboard');
     }
 }

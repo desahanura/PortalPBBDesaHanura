@@ -65,7 +65,7 @@ class Filters extends BaseConfig
     public array $filters = [
         'isLoggedIn' => ['before' =>
         [
-            'overview', 'daftarNopPbb', 'daftarSudahBayar', 'daftarDihapus', 'daftarSpptTidakDitemukan', 'daftarHarusDitagih'
+            'dashboard', 'daftarNopPbb', 'daftarSudahBayar', 'daftarDihapus', 'daftarSpptTidakDitemukan', 'daftarHarusDitagih'
         ]]
     ];
 }

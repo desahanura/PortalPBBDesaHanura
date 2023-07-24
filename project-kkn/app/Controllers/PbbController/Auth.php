@@ -15,7 +15,7 @@ class Auth extends BaseController
     public function login()
     {
         if (session('id_user')) {
-            return redirect()->to(site_url('overview'));
+            return redirect()->to(site_url('dashboard'));
         }
         return view('pbbView/auth/viewLogin');
     }
@@ -29,7 +29,7 @@ class Auth extends BaseController
             if (password_verify($post['password'], $user->password)) {
                 $params = ['id_user' => $user->id_user];
                 session()->set($params);
-                return redirect()->to(site_url('overview'));
+                return redirect()->to(site_url('dashboard'));
             } else {
                 return redirect()->back()->with('error', 'Password tidak sesuai');
             }
