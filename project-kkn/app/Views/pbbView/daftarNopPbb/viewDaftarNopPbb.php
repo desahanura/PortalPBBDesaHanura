@@ -2,13 +2,6 @@
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <!-- <script>
-        $(function() {
-            $(document).on("click", ".btnSudahBayar", function() {
-                var getselectedvalues = $(".mainTable input:checked").parents("tr").clone().appendTo($("secondTable tbody").add(getselectedvalues));
-            })
-        })
-    </script> -->
 </head>
 
 </html>
@@ -90,8 +83,8 @@
                     <h4>Daftar Seluruh Objek Pajak PBB Desa Hanura</h4>
                 </div>
                 <div class="card-body table-responsive">
-                    <table class="mainTable table table-striped table-md">
-                        <tbody>
+                    <table class="table table-striped table-md" id="table1">
+                        <thead>
                             <tr class="text-center">
                                 <th>Select</th>
                                 <th>No.</th>
@@ -105,6 +98,8 @@
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
+                        </thead>
+                        <tbody>
                             <!-- <form action="daftarnoppbb/sudahBayar" method="post" id="sudahBayar"> -->
                             <?php
                             $page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -147,7 +142,7 @@
                             <!-- </form> -->
                         </tbody>
                     </table>
-                    <?= $pager->links('default', 'pagination') ?>
+
                 </div>
             </div>
         </div>

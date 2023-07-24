@@ -72,7 +72,7 @@ $routes->delete('daftardihapus/delete2/', 'PbbController\DaftarDihapus::delete2'
 // delete permanent
 
 // Import Excel
-$routes->post('noppbb/import', 'DaftarNopPbb::import'); //tambahkan filter
+$routes->post('noppbb/import', 'PbbController\DaftarNopPbb::import', ['filter' => 'isLoggedIn']); //tambahkan filter
 
 // DATABASE
 $routes->get('create-db', function () {

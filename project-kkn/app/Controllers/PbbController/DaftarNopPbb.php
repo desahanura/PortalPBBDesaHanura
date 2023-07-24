@@ -18,9 +18,9 @@ class DaftarNopPbb extends BaseController
 
     public function index()
     {
-        // $data['noppbb'] = $this->nopModel->withDeleted()->findAll();
-        $keyword = $this->request->getGet('keyword');
-        $data = $this->nopModel->withDeleted()->getPaginated(10, $keyword);
+        $data['noppbb'] = $this->nopModel->withDeleted()->findAll();
+        // $keyword = $this->request->getGet('keyword');
+        // $data = $this->nopModel->withDeleted()->getPaginated(10, $keyword);
         // $data['pager'] = $this->nopModel->pager;
         return view('pbbView/daftarNopPbb/viewDaftarNopPbb', $data);
     }
@@ -122,8 +122,22 @@ class DaftarNopPbb extends BaseController
                 $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
             }
             $spreadsheet = $reader->load($file);
-            // $fileUpload = $spreadsheet->getActivateSheet()->toArray();
-            // print_r($fileUpload);
+            $fileUpload = $spreadsheet->getActiveSheet()->toArray();
+            foreach ($fileUpload as $key => $value) {
+                if ($key == 0) {
+                    continue;
+                }
+                $data = [
+                    'nop' => $value[1],
+                    'tahun' => $value[2],
+                    'nama' => $value[3],
+                    'alamat' => $value[4],
+                    'besaran_pbb' => $value[5],
+                    'denda' => $value[6],
+                ];
+                $this->nopModel->insert($data);
+            }
+            return redirect()->back()->with('success', 'Data Berhasil Diimport');
         } else {
             return redirect()->back()->with('error', 'Format File Tidak Sesuai');
         }

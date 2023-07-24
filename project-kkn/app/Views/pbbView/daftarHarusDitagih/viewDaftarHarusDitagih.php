@@ -41,8 +41,8 @@
                 <h4>Daftar Harus Ditagih PBB Desa Hanura</h4>
             </div>
             <div class="card-body table-responsive">
-                <table class="table table-striped table-md">
-                    <tbody>
+                <table class="table table-striped table-md" id="table1">
+                    <thead>
                         <tr class="text-center">
                             <th>Select</th>
                             <th>No.</th>
@@ -56,7 +56,8 @@
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
-
+                    </thead>
+                    <tbody>
                         <?php foreach ($noppbb as $key => $value) : ?>
                             <tr>
                                 <td>
