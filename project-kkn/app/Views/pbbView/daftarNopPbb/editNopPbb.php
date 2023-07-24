@@ -49,10 +49,19 @@
                     <div class="form-group">
                         <label>Status *</label>
                         <select name="status_bayar" id="status">
-                            <option value="<?= $noppbb->status_bayar ?>"><?= $noppbb->status_bayar ?></option>
+                            <option value="<?= $noppbb->status_bayar ?>"><?php if ($noppbb->status_bayar == "0") {
+                                                                                echo "Belum Bayar";
+                                                                            } else {
+                                                                                echo "Sudah Bayar";
+                                                                            } ?></option>
+                            <option value="<?= !$noppbb->status_bayar ?>"><?php if (!$noppbb->status_bayar == "0") {
+                                                                                echo "Belum Bayar";
+                                                                            } else {
+                                                                                echo "Sudah Bayar";
+                                                                            } ?></option>
                             <!-- <option value="">--Pilih Status--</option> -->
-                            <option value="1">Sudah Bayar</option>
-                            <option value="0">Belum Bayar</option>
+                            <!-- <option value="1">Sudah Bayar</option>
+                            <option value="0">Belum Bayar</option> -->
                         </select>
                     </div>
                     <div class="form-group">
