@@ -13,72 +13,62 @@
 
 <?= $this->section('content') ?>
 <section class="section">
-    <form action="daftarnoppbb/sudahBayar" method="post">
-        <?= csrf_field() ?>
-        <div class="section-header">
-            <div>
-                <h1>Daftar NOP PBB</h1>
-            </div>
-            <div class="section-header-button">
-                <a href="<?= site_url('daftarnoppbb/add') ?>" class="btn btn-primary">Tambah Data</a>
-            </div>
-            <div class="section-header-button">
-                <button class="btn btn-success">Tandai Tidak Ditemukan</button>
-            </div>
-            <div class="section-header-button">
-                <button class="btn btn-success">Tandai Ingin Dihapus</button>
-            </div>
-            <!-- <div class="section-header-button">
-                <input class="btnSudahBayar btn btn-success" type="submit" form="sudahBayar" value="Sudah Bayar"></input>
-            </div> -->
-            <div class="card m-1">
-                <div class="card-header p-1">
-                    <!-- <form action="" method="get" autocomplete="off">
-                        <div class="float-left">
-                            <input type="text" name="keyword" value="" class="form-control" style="width:250pt" placeholder="Cari Data">
-                        </div>
-                        <div class="float-right ml-2">
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                        </div>
-                    </form> -->
-                    <div class="dropdown d-inline ml-2">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-file-upload"></i> Import Excel
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item has-icon" href="<?= base_url('Example.xlsx') ?>">
-                                <i class="fas fa-file-excel"></i> Download Example</a>
-                            <a class="dropdown-item has-icon" href="#" data-toggle="modal" data-target="#modal-import-noppbb">
-                                <i class="fas fa-file-import"></i> Upload File</a>
-                        </div>
-                    </div>
-                </div>
+    <div class="section-header">
+        <div>
+            <h1>Daftar NOP PBB</h1>
+        </div>
+        <!-- <div class="section-header-button">
+            <input class="btnSudahBayar btn btn-success" type="submit" form="sudahBayar" value="Sudah Bayar"></input>
+        </div> -->
+    </div>
+
+    <?php if (session()->getFlashdata('error')) : ?>
+        <div class="alert alert-danger alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">x</button>
+                <b>Error !</b>
+                <?= session()->getFlashdata('error') ?>
             </div>
         </div>
-
-        <?php if (session()->getFlashdata('error')) : ?>
-            <div class="alert alert-danger alert-dismissible show fade">
-                <div class="alert-body">
-                    <button class="close" data-dismiss="alert">x</button>
-                    <b>Error !</b>
-                    <?= session()->getFlashdata('error') ?>
-                </div>
+    <?php endif; ?>
+    <?php if (session()->getFlashdata('success')) : ?>
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">x</button>
+                <b>Success !</b>
+                <?= session()->getFlashdata('success') ?>
             </div>
-        <?php endif; ?>
-        <?php if (session()->getFlashdata('success')) : ?>
-            <div class="alert alert-success alert-dismissible show fade">
-                <div class="alert-body">
-                    <button class="close" data-dismiss="alert">x</button>
-                    <b>Success !</b>
-                    <?= session()->getFlashdata('success') ?>
-                </div>
-            </div>
-        <?php endif; ?>
+        </div>
+    <?php endif; ?>
 
-        <div class="section-body">
+    <div class="section-body">
+        <form action="" method="post">
+            <?= csrf_field() ?>
             <div class="card">
                 <div class="card-header">
                     <h4>Daftar Seluruh Objek Pajak PBB Desa Hanura</h4>
+                    <div class="float-right ml-auto">
+                        <div class="d-inline ml-2">
+                            <a href="<?= site_url('daftarnoppbb/add') ?>" class="btn btn-primary">Tambah Data</a>
+                        </div>
+                        <div class="d-inline ml-2">
+                            <button class="btn btn-success">Tandai Tidak Ditemukan</button>
+                        </div>
+                        <div class="d-inline ml-2">
+                            <button class="btn btn-success">Tandai Ingin Dihapus</button>
+                        </div>
+                        <div class="dropdown d-inline ml-2">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-file-upload"></i> Import Excel
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item has-icon" href="<?= base_url('Example.xlsx') ?>">
+                                    <i class="fas fa-file-excel"></i> Download Example</a>
+                                <a class="dropdown-item has-icon" href="#" data-toggle="modal" data-target="#modal-import-noppbb">
+                                    <i class="fas fa-file-import"></i> Upload File</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body table-responsive">
                     <table class="table table-striped table-md" id="table1">
@@ -142,8 +132,8 @@
                     </table>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </section>
 
 <!-- Modal -->

@@ -9,29 +9,6 @@
     <div class="section-header">
         <div>
             <h1>Daftar Permintaan Dihapus</h1>
-        </div><br>
-        <div class="card m-1">
-            <div class="card-header p-1">
-                <form action="" method="get" autocomplete="off">
-                    <div class="float-left">
-                        <input type="text" name="keyword" value="" class="form-control" style="width:250pt" placeholder="Cari Data">
-                    </div>
-                    <div class="float-right ml-2">
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                    </div>
-                </form>
-                <div class="dropdown d-inline ml-2">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-file-upload"></i> Import Excel
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item has-icon" href="<?= base_url('Example.xlsx') ?>">
-                            <i class="fas fa-file-excel"></i> Download Example</a>
-                        <a class="dropdown-item has-icon" href="#" data-toggle="modal" data-target="#modal-import-noppbb">
-                            <i class="fas fa-file-import"></i> Upload File</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <?php if (session()->getFlashData('success')) : ?>
@@ -44,18 +21,33 @@
             <div class="card-header">
                 <h4>Daftar Dihapus PBB Desa Hanura</h4>
                 <div class="float-right ml-auto">
-                    <a href="<?= site_url('daftardihapus/hapus/') ?>" class="btn btn-info ">Hapus Semua</i></a>
-                    <form action="<?= site_url('daftardihapus/hapusPermanen/') ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus semua data ini secara permanen?')">
-                        <?= csrf_field() ?>
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button class="btn btn-danger btn-sm">Hapus Permanen Semua</button>
-                    </form>
+                    <div class="d-inline ml-2">
+                        <a href="<?= site_url('daftardihapus/hapus/') ?>" class="btn btn-info ">Hapus Semua</i></a>
+                    </div>
+                    <div class="d-inline ml-2">
+                        <form action="<?= site_url('daftardihapus/hapusPermanen/') ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus semua data ini secara permanen?')">
+                            <?= csrf_field() ?>
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="btn btn-danger btn-sm">Hapus Permanen Semua</button>
+                        </form>
+                    </div>
                     <!-- <a href="<?= site_url('daftardihapus/hapus/') ?>" class="btn btn-info">Hapus Semua</a>
                     <form action="<?= site_url('daftardihapus/hapusPermanen/') ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin hapus data ini secara permanen?')">
                         <?= csrf_field() ?>
                         <input type="hidden" name="_method" value="DELETE">
                         <a href="<?= site_url('daftardihapus/hapusPermanen/') ?>" class="btn btn-danger">Delete All Permanently</a>
                     </form> -->
+                    <div class="dropdown d-inline ml-2">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-file-upload"></i> Import Excel
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item has-icon" href="<?= base_url('Example.xlsx') ?>">
+                                <i class="fas fa-file-excel"></i> Download Example</a>
+                            <a class="dropdown-item has-icon" href="#" data-toggle="modal" data-target="#modal-import-noppbb">
+                                <i class="fas fa-file-import"></i> Upload File</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card-body table-responsive">
@@ -110,5 +102,7 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+    </div>
 </section>
 <?= $this->endSection() ?>
