@@ -3,6 +3,7 @@
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
+use Faker\DefaultGenerator;
 
 class Noppbb extends Migration
 {
@@ -44,7 +45,8 @@ class Noppbb extends Migration
             ],
             'tanggal' => [
                 'type' => 'DATE',
-                'null' => true,
+                'default' => 
+                // 'null' => true,
             ],
             'status_bayar' => [
                 'type' => 'BOOLEAN',

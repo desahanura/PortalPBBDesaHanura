@@ -34,10 +34,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>News</h4>
+                            <h4>NOP PBB</h4>
                         </div>
                         <div class="card-body">
-                            42
+                            <?= countData('tb_noppbb') ?>
                         </div>
                     </div>
                 </div>
@@ -49,10 +49,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Reports</h4>
+                            <h4>Sudah Bayar</h4>
                         </div>
                         <div class="card-body">
-                            1,201
+                            <?= countDataSudahBayar('tb_noppbb') ?>
                         </div>
                     </div>
                 </div>
@@ -64,10 +64,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Online Users</h4>
+                            <h4>Harus Ditagih</h4>
                         </div>
                         <div class="card-body">
-                            47
+                            <?= countDataHarusDitagih('tb_noppbb') ?>
                         </div>
                     </div>
                 </div>
