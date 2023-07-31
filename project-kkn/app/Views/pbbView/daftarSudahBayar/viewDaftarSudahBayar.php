@@ -41,9 +41,11 @@
                         <div class="d-inline ml-2">
                             <button class="btn btn-success">Tandai Belum Bayar</button>
                         </div>
-                        <a href="<?= site_url('sudahbayar/export') ?>" class="btn btn-primary">
-                            <i class="fas fa-file-download"></i> Export Excel
-                        </a>
+                        <div class="d-inline ml-2">
+                            <a href="<?= site_url('sudahbayar/export') ?>" class="btn btn-primary">
+                                <i class="fas fa-file-download"></i> Export Excel
+                            </a>
+                        </div>
                         <!-- import -->
                         <!-- <div class="dropdown d-inline ml-2">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

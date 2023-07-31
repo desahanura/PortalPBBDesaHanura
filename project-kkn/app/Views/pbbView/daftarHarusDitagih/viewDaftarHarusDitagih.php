@@ -41,9 +41,11 @@
                         <div class="d-inline ml-2">
                             <button class="btn btn-success">Tandai Sudah Bayar</button>
                         </div>
-                        <a href="<?= site_url('harusDitagih/export') ?>" class="btn btn-primary">
-                            <i class="fas fa-file-download"></i> Export Excel
-                        </a>
+                        <div class="d-inline ml-2">
+                            <a href="<?= site_url('harusDitagih/export') ?>" class="btn btn-primary">
+                                <i class="fas fa-file-download"></i> Export Excel
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body table-responsive">

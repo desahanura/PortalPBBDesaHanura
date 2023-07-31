@@ -12,9 +12,11 @@ var url = location.origin + '/' + path[1]
 
 $('ul.sidebar-menu li a').each(function()
 {
-    if($(this).attr('href').indexOf(url) !== -1)
+    if($(this).attr('href').indexOf(url) !== -1 && path[1] !== "")
     {
         $(this).parent().addClass('active').parent().parent('li').addClass('active')
+        $('#sidebar_home').removeClass('active')
+        console.log(url)
         console.log(path)
     }
 })

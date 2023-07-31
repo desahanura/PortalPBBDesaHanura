@@ -68,9 +68,11 @@
                                     <i class="fas fa-file-import"></i> Upload File</a>
                             </div>
                         </div>
-                        <a href="<?= site_url('noppbb/export') ?>" class="btn btn-primary">
-                            <i class="fas fa-file-download"></i> Export Excel
-                        </a>
+                        <div class="d-inline ml-2">
+                            <a href="<?= site_url('noppbb/export') ?>" class="btn btn-primary">
+                                <i class="fas fa-file-download"></i> Export Excel
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body table-responsive">

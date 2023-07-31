@@ -16,19 +16,6 @@
         <div class="card">
             <div class="card-header">
                 <h4>Daftar Objek Pajak dan Wajib Pajak Tidak Ditemukan PBB Desa Hanura</h4>
-                <div class="float-right ml-auto">
-                    <div class="dropdown d-inline ml-2">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-file-upload"></i> Import Excel
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item has-icon" href="<?= base_url('Example.xlsx') ?>">
-                                <i class="fas fa-file-excel"></i> Download Example</a>
-                            <a class="dropdown-item has-icon" href="#" data-toggle="modal" data-target="#modal-import-noppbb">
-                                <i class="fas fa-file-import"></i> Upload File</a>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="card-body table-responsive">
                 <table class="table table-striped table-md" id="table1">

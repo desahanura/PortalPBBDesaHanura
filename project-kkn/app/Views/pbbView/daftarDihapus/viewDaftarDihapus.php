@@ -37,9 +37,11 @@
                         <input type="hidden" name="_method" value="DELETE">
                         <a href="<?= site_url('daftardihapus/hapusPermanen/') ?>" class="btn btn-danger">Delete All Permanently</a>
                     </form> -->
-                    <a href="<?= site_url('daftarDihapus/export') ?>" class="btn btn-primary">
-                        <i class="fas fa-file-download"></i> Export Excel
-                    </a>
+                    <div class="d-inline ml-2">
+                        <a href="<?= site_url('daftarDihapus/export') ?>" class="btn btn-primary">
+                            <i class="fas fa-file-download"></i> Export Excel
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="card-body table-responsive">

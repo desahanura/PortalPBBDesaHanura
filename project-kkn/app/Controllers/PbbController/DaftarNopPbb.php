@@ -126,7 +126,7 @@ class DaftarNopPbb extends BaseController
 
     public function export()
     {
-        $noppbb = $this->nopModel->findAll();
+        $noppbb = $this->nopModel->withDeleted()->findAll();
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
