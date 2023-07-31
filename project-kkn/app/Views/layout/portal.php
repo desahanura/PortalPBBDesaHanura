@@ -52,7 +52,7 @@
                     </div> -->
                 </div>
                 <ul class="navbar-nav navbar-right">
-                    <img alt="Logo Hanura" src="images/logohanura.png" width="30px">
+                    <img alt="Logo Hanura" src="images/logohanura.png" width="30px" max-height="40px">
                 </ul>
             </nav>
 
