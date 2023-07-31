@@ -70,10 +70,14 @@ $routes->get('daftardihapus/hapus', 'PbbController\DaftarDihapus::hapus');
 $routes->delete('daftardihapus/hapusPermanen/(:any)', 'PbbController\DaftarDihapus::hapusPermanen/$1');
 $routes->delete('daftardihapus/hapusPermanen/', 'PbbController\DaftarDihapus::hapusPermanen');
 
-// delete permanent
+// export
+$routes->post('noppbb/import', 'PbbController\DaftarNopPbb::import', ['filter' => 'isLoggedIn']); //tambahkan filter
 
 // Import Excel
-$routes->post('noppbb/import', 'PbbController\DaftarNopPbb::import', ['filter' => 'isLoggedIn']); //tambahkan filter
+$routes->get('noppbb/export', 'PbbController\DaftarNopPbb::export');
+$routes->get('sudahbayar/export', 'PbbController\DaftarSudahBayar::export');
+$routes->get('harusDitagih/export', 'PbbController\DaftarHarusDitagih::export');
+$routes->get('daftarDihapus/export', 'PbbController\DaftarDihapus::export');
 
 // DATABASE
 $routes->get('create-db', function () {

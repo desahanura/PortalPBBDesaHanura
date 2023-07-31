@@ -51,12 +51,12 @@
                         <div class="d-inline ml-2">
                             <a href="<?= site_url('daftarnoppbb/add') ?>" class="btn btn-primary">Tambah Data</a>
                         </div>
-                        <div class="d-inline ml-2">
+                        <!-- <div class="d-inline ml-2">
                             <button class="btn btn-success">Tandai Tidak Ditemukan</button>
                         </div>
                         <div class="d-inline ml-2">
                             <button class="btn btn-success">Tandai Ingin Dihapus</button>
-                        </div>
+                        </div> -->
                         <div class="dropdown d-inline ml-2">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-file-upload"></i> Import Excel
@@ -68,6 +68,9 @@
                                     <i class="fas fa-file-import"></i> Upload File</a>
                             </div>
                         </div>
+                        <a href="<?= site_url('noppbb/export') ?>" class="btn btn-primary">
+                            <i class="fas fa-file-download"></i> Export Excel
+                        </a>
                     </div>
                 </div>
                 <div class="card-body table-responsive">

@@ -5,7 +5,9 @@ namespace App\Controllers\PbbController;
 use App\Controllers\BaseController;
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx as XlsxReader;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 
 use App\Models\NOPModel;
 
@@ -102,7 +104,7 @@ class DaftarNopPbb extends BaseController
             $this->nopModel->update($value, ['status_bayar' => '1']);
         }
         return redirect()->to(site_url('daftarHarusDitagih'))
-        ->with('success', "Data Berhasil Diperbaharui");
+            ->with('success', "Data Berhasil Diperbaharui");
     }
 
     public function belumBayar()
@@ -112,7 +114,7 @@ class DaftarNopPbb extends BaseController
             $this->nopModel->update($value, ['status_bayar' => '0']);
         }
         return redirect()->to(site_url('daftarSudahBayar'))
-        ->with('success', "Data Berhasil Diperbaharui");
+            ->with('success', "Data Berhasil Diperbaharui");
     }
 
 
@@ -121,6 +123,64 @@ class DaftarNopPbb extends BaseController
     //     $this->db->table('tb_noppbb')->where(['id' => $id])->delete();
     // return redirect()->to(site_url('daftarNopPbb'))->with('success', "Data Berhasil Dihapus");
     // }
+
+    public function export()
+    {
+        $noppbb = $this->nopModel->findAll();
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'NOP');
+        $sheet->setCellValue('C1', 'Tahun');
+        $sheet->setCellValue('D1', 'Nama');
+        $sheet->setCellValue('E1', 'Alamat');
+        $sheet->setCellValue('F1', 'Besaran PBB');
+        $sheet->setCellValue('G1', 'Denda');
+
+        $column = 2;
+        foreach ($noppbb as $key => $value) {
+            $sheet->setCellValue('A' . $column, ($column - 1));
+            $sheet->setCellValue('B' . $column, $value->nop);
+            $sheet->setCellValue('C' . $column, $value->tahun);
+            $sheet->setCellValue('D' . $column, $value->nama);
+            $sheet->setCellValue('E' . $column, $value->alamat);
+            $sheet->setCellValue('F' . $column, $value->besaran_pbb);
+            $sheet->setCellValue('G' . $column, $value->denda);
+            $column++;
+        }
+
+        $sheet->getStyle('A1:G1')->getFont()->setBold(true);
+        $sheet->getStyle('A1:G1')->getFill()
+        ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
+        ->getStartColor()->setARGB('FFFFFF00');
+        $styleArray = [
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                    'color' => ['argb' => 'FF000000'],
+                ],
+            ],
+        ];
+        $sheet->getStyle('A1:G'.($column-1))->applyFromArray($styleArray);
+
+
+        $sheet->getColumnDimension('A')->setAutoSize(true);
+        $sheet->getColumnDimension('B')->setAutoSize(true);
+        $sheet->getColumnDimension('c')->setAutoSize(true);
+        $sheet->getColumnDimension('D')->setAutoSize(true);
+        $sheet->getColumnDimension('E')->setAutoSize(true);
+        $sheet->getColumnDimension('F')->setAutoSize(true);
+        $sheet->getColumnDimension('G')->setAutoSize(true);
+
+
+        $writer = new Xlsx($spreadsheet);
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Dispotition:attachment;filename=NOPPBB.xlsx');
+        header('Cache-Control: max-age=0');
+        $writer->save('php://output');
+        exit();
+    }
 
     public function import()
     {

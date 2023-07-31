@@ -41,7 +41,11 @@
                         <div class="d-inline ml-2">
                             <button class="btn btn-success">Tandai Belum Bayar</button>
                         </div>
-                        <div class="dropdown d-inline ml-2">
+                        <a href="<?= site_url('sudahbayar/export') ?>" class="btn btn-primary">
+                            <i class="fas fa-file-download"></i> Export Excel
+                        </a>
+                        <!-- import -->
+                        <!-- <div class="dropdown d-inline ml-2">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-file-upload"></i> Import Excel
                             </button>
@@ -51,7 +55,7 @@
                                 <a class="dropdown-item has-icon" href="#" data-toggle="modal" data-target="#modal-import-noppbb">
                                     <i class="fas fa-file-import"></i> Upload File</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="card-body table-responsive">
