@@ -21,7 +21,7 @@
                         <a href="<?= site_url('login') ?>" class="btn btn-primary">View</a>
                     </div>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="align-self: center;">
                     <div class="mb-2 text-muted">Pencatatan PBB Desa Hanura</div>
                     <div class="chocolat-parent">
                         <img src="images/logohanura.png" alt="Logo Hanura">
@@ -38,7 +38,7 @@
                         <a href="<?= site_url('dashboard') ?>" class="btn btn-primary">View</a>
                     </div>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="align-self: center;">
                     <div class="mb-2 text-muted">UMKM Desa Hanura</div>
                     <div class="chocolat-parent">
                         <img src="images/logohanura.png" alt="Logo Hanura">
@@ -55,7 +55,7 @@
                         <a href="<?= site_url('dashboard') ?>" class="btn btn-primary">View</a>
                     </div>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="align-self: center;">
                     <div class="mb-2 text-muted">Bumdes Desa Hanura</div>
                     <div class="chocolat-parent">
                         <img src="images/logohanura.png" alt="Logo Hanura">

@@ -10,20 +10,6 @@
         <div>
             <h1>Daftar Sudah Bayar</h1>
         </div>
-
-        <div class="card m-1">
-            <div class="card-header p-1">
-                <!-- <form action="" method="get" autocomplete="off">
-                        <div class="float-left">
-                            <input type="text" name="keyword" value="" class="form-control" style="width:250pt" placeholder="Cari Data">
-                        </div>
-                        <div class="float-right ml-2">
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                        </div>
-                    </form> -->
-
-            </div>
-        </div>
     </div>
 
     <?php if (session()->getFlashdata('error')) : ?>

@@ -1,7 +1,7 @@
 <?= $this->extend('layout/default') ?>
 
 <?= $this->section('title') ?>
-<title>Daftar Dihapus &mdash; PBB Desa Hanura</title>
+<title>Daftar Permintaan Dihapus &mdash; PBB Desa Hanura</title>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -19,7 +19,7 @@
     <div class="section-body">
         <div class="card">
             <div class="card-header">
-                <h4>Daftar Dihapus PBB Desa Hanura</h4>
+                <h4>Daftar Permintaan Dihapus PBB Desa Hanura</h4>
                 <div class="float-right ml-auto">
                     <div class="d-inline ml-2">
                         <a href="<?= site_url('daftardihapus/hapus/') ?>" class="btn btn-info ">Hapus Semua</i></a>
@@ -51,9 +51,9 @@
                 </div>
             </div>
             <div class="card-body table-responsive">
-                <table class="table table-striped table-md text-center">
-                    <tbody>
-                        <tr>
+                <table class="table table-striped table-md" id="table1">
+                    <thead>
+                        <tr class="text-center">
                             <th>Select</th>
                             <th>No.</th>
                             <th>Nomor Objek Pajak (NOP)</th>
@@ -66,7 +66,10 @@
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
-                        <?php foreach ($noppbb as $key => $value) : ?>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($noppbb as $key => $value) : ?>
                             <tr>
                                 <td>
                                     <div class="custom-control custom-checkbox">
