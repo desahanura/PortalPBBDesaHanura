@@ -21,27 +21,53 @@
                     </div>
                     <div class="card-body">
                         <div style="margin-bottom: 10px; text-align: center">
-                            <b>Tim IT KKN Unila Periode II Tahun 2023 <br> Desa Hanura Kecamatan Teluk Pandan
-                                Kabupaten Pesawaran</b>
+                            <b>Tim IT KKN Unila Periode II Tahun 2023 <br> Desa Hanura Kecamatan
+                                Teluk Pandan Kabupaten Pesawaran</b>
                             <br>
-                            <p style="margin-top: 5px;">
+                            <p class="text-muted" style="margin-top: 5px;">
                                 <i>- 26 Juli 2023 s.d. 4 Agustus 2023 -</i>
                             </p>
                         </div>
-                        <p style="margin-top: 40px; margin-bottom: 0px;">
+                        <p style="margin-top: 50px; margin-bottom: 0px;">
                             Website Portal Desa Hanura dikembangkan oleh tiga mahasiswa
                             Prodi S1 Ilmu Komputer Unila pada saat pelaksanaan
                             Kuliah Kerja Nyata (KKN) di Desa Hanura selama 40 hari,
                             terhitung dari tanggal 26 Agustus 2023 s.d. 4 Agustus 2023.
 
-                            Portal Desa Hanura terhubung dengan Website Pencatatan PBB, UMKM, dan Bumdes Desa Hanura.
-                            Website yang sudah aktif untuk saat ini adalah Pencatatan PBB. Website tersebut
-                            terdiri dari beberapa fitur, antara lain: 
-                            <br>1. Mengelola Daftar NOP PBB
-                            <br>2. Mengelola Daftar Sudah Bayar
-                            <br>3. Mengelola Daftar Harus Ditagih
-                            <br>4. Mengelola Daftar Permintaan Dihapus
-                            <br>5. Mengelola Daftar Objek Pajak dan Wajib Pajak Tidak Ditemukan
+                            Portal Desa Hanura terhubung dengan Website Pencatatan PBB, UMKM,
+                            dan Bumdes Desa Hanura yang dapat diakses dengan login ke sistem.
+                            Website yang sudah aktif untuk saat ini adalah Pencatatan PBB.
+                            Website tersebut dikembangkan untuk membantu staff administrasi Desa Hanura
+                            dalam melakukan pengelolaan data Pajak Bumi Pembangunan Desa Hanura. <br><br>
+
+                            Website Pencatatan PBB Desa Hanura terdiri dari beberapa fitur, antara lain:
+                        <ol><br>
+                            <li><b>Mengelola Daftar NOP PBB: </b>melihat tabel seluruh data NOP PBB, menambah
+                                data PBB, mengedit data PBB, impor dan ekspor data PBB (.xlsx), serta
+                                menambahkan data PBB ke Daftar Permintaan Dihapus (individual).
+                            </li>
+                            <li>
+                                <b>Mengelola Daftar Sudah Bayar: </b>melihat tabel data sudah bayar PBB,
+                                mengganti status bayar data menjadi belum bayar (memindahkan data
+                                ke Daftar Harus Ditagih), mengedit data, menambahkan data PBB ke Daftar
+                                Permintaan Dihapus, dan mengekspor data.
+                            </li>
+                            <li>
+                                <b>Mengelola Daftar Harus Ditagih: </b>Mmelihat tabel data belum bayar PBB,
+                                mengganti status bayar data menjadi sudah bayar (memindahkan data
+                                ke Daftar Sudah Bayar), mengedit data, menambahkan data PBB ke Daftar
+                                Permintaan Dihapus, dan mengekspor data.
+                            </li>
+                            <li>
+                                <b>Mengelola Daftar Permintaan Dihapus: </b>melihat tabel data PBB yang
+                                termasuk ke dalam permintaan dihapus, menghapus data dari kategori
+                                permintaan dihapus (individual dan keseluruhan), menghapus data PBB
+                                secara permanen (individual dan keseluruhan), dan mengekspor data.
+                            </li>
+                            <li>
+                                <b>Mengelola Daftar Objek Pajak dan Wajib Pajak Tidak Ditemukan</b>
+                            </li>
+                        </ol>
                         </p>
                     </div>
                 </div>
