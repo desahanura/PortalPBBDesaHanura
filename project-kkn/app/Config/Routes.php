@@ -43,7 +43,7 @@ $routes->get('copyright/', 'UserPortal::viewCopyright');
 $routes->get('contact/', 'UserPortal::viewContact');
 
 // $routes->addRedirect('/', 'home');
-
+ 
 // PBB
 $routes->get('dashboard/', 'PbbController\Dashboard::index');
 $routes->get('daftarNopPbb/', 'PbbController\DaftarNopPbb::index');
@@ -52,6 +52,9 @@ $routes->get('daftarDihapus/', 'PbbController\DaftarDihapus::index');
 $routes->get('daftarHarusDitagih/', 'PbbController\DaftarHarusDitagih::index');
 $routes->get('daftarSpptTidakDitemukan/', 'PbbController\DaftarSpptTidakDitemukan::index');
 $routes->get('settings/', 'PbbController\Settings::index');
+
+// UMKM
+$routes->get('dashboard/', 'umkmController\umkmView::index');
 
 // CRUD NOPPBB 
 // $routes->get('daftarnoppbb', 'DaftarNopPbb::index');
@@ -78,6 +81,13 @@ $routes->get('noppbb/export', 'PbbController\DaftarNopPbb::export');
 $routes->get('sudahbayar/export', 'PbbController\DaftarSudahBayar::export');
 $routes->get('harusDitagih/export', 'PbbController\DaftarHarusDitagih::export');
 $routes->get('daftarDihapus/export', 'PbbController\DaftarDihapus::export');
+
+
+// Filter
+// $routes->post('daftarNopPbb/filter/1', 'PbbController\DaftarNopPbb::filter'); 
+// $routes->get('daftarNopPbb/filter/0', 'PbbController\DaftarNopPbb::filter');
+// $routes->get('daftarnoppbb/filter', 'DaftarNopPbb::filter');
+
 
 // DATABASE
 $routes->get('create-db', function () {

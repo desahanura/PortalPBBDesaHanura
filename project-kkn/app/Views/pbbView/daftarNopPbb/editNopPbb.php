@@ -36,37 +36,57 @@
                     </div>
                     <div class="form-group">
                         <label>Alamat *</label>
-                        <textarea name="alamat" cols="30" rows="10" class="form-control" required><?= $noppbb->alamat ?></textarea>
+                        <textarea name="alamat" cols="30" rows="10" class="form-control" required><?= $noppbb->alamat ?></textarea><br>
+                        <select name="dusun">
+                            <option value="Dusun A" class="form-control">Dusun A</option>
+                            <option value="Dusun B" class="form-control">Dusun B</option>
+                            <option value="Dusun C" class="form-control">Dusun C</option>
+                            <option value="Dusun D" class="form-control">Dusun D</option>
+                        </select>
+                        <select name="rt">
+                            <option value="1" class="form-control">RT 1</option>
+                            <option value="2" class="form-control">RT 2</option>
+                            <option value="3" class="form-control">RT 3</option>
+                            <option value="4" class="form-control">RT 4</option>
+                            <option value="5" class="form-control">RT 5</option>
+                            <option value="6" class="form-control">RT 6</option>
+                            <option value="7" class="form-control">RT 7</option>
+                            <option value="8" class="form-control">RT 8</option>
+                            <option value="9" class="form-control">RT 9</option>
+                            <option value="10" class="form-control">RT 10</option>
+                        </select>
+                        <select name="rw">
+                            <option value="A" class="form-control">RW A</option>
+                            <option value="B" class="form-control">RW B</option>
+                        </select>
                     </div>
+                    
                     <div class="form-group">
                         <label>Besaran PBB *</label>
-                        <input type="text" name="besaran_pbb" value="<?= $noppbb->besaran_pbb ?>" class="form-control" required>
+                        <input type="text" name="besaran_pbb" value="<?= $noppbb->besaran_pbb ?>" class="form-control" pattern="\d+(\.\d{1,2})?" title="Enter a valid numeric value" required>
                     </div>
                     <div class="form-group">
                         <label>Denda *</label>
-                        <input type="text" name="denda" value="<?= $noppbb->denda ?>" class="form-control" required>
+                        <input type="text" name="denda" value="<?= $noppbb->denda ?>" class="form-control" pattern="\d+(\.\d{1,2})?" title="Enter a valid numeric value" required>
                     </div>
                     <div class="form-group">
                         <label>Status *</label>
                         <select name="status_bayar" id="status">
-                            <option value="<?= $noppbb->status_bayar ?>"><?php if ($noppbb->status_bayar == "0") {
-                                                                                echo "Belum Bayar";
-                                                                            } else {
-                                                                                echo "Sudah Bayar";
-                                                                            } ?></option>
-                            <option value="<?= !$noppbb->status_bayar ?>"><?php if (!$noppbb->status_bayar == "0") {
-                                                                                echo "Belum Bayar";
-                                                                            } else {
-                                                                                echo "Sudah Bayar";
-                                                                            } ?></option>
-                            <!-- <option value="">--Pilih Status--</option> -->
-                            <!-- <option value="1">Sudah Bayar</option>
-                            <option value="0">Belum Bayar</option> -->
+                            <option value="1" <?php echo ($noppbb->status_bayar == "1") ? 'selected' : ''; ?>>Sudah Bayar</option>
+                            <option value="0" <?php echo ($noppbb->status_bayar == "0") ? 'selected' : ''; ?>>Belum Bayar</option>
                         </select>
                     </div>
                     <div class="form-group">
+                        <label>Jenis Pajak *</label>
+                        <select name="jenis_pajak">
+                            <option value="1" <?php echo ($noppbb->jenis_pajak == "1") ? 'selected' : ''; ?>>Ditemukan</option>
+                            <option value="0" <?php echo ($noppbb->jenis_pajak == "0") ? 'selected' : ''; ?>>Tidak Ditemukan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
                         <label>Tanggal Terdata *</label>
-                        <input type="date" name="tanggal" value="<?= $noppbb->tanggal ?>" class="form-control" required>
+                        <input type="DATETIME" name="tanggal" value="<?= $noppbb->tanggal ?>" class="form-control" required>
                     </div>
                     <div>
                         <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"> Save </i></button>

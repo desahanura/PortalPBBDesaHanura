@@ -10,9 +10,11 @@ use App\Models\NOPModel;
 
 class DaftarDihapus extends BaseController
 {
+    public $nopModel, $db;
     function __construct()
     {
         $this->nopModel = new NOPModel();
+        $this->db = \Config\Database::connect();;
     }
 
     public function index()

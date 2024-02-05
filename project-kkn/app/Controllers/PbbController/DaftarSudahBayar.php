@@ -10,9 +10,12 @@ use App\Models\NOPModel;
 
 class DaftarSudahBayar extends BaseController
 {
+
+    public $nopModel;
     function __construct()
     {
         $this->nopModel = new NOPModel();
+        
     }
 
     public function index()
@@ -21,6 +24,7 @@ class DaftarSudahBayar extends BaseController
         // dd($data['noppbb']);
 
         return view('pbbView/daftarSudahBayar/viewDaftarSudahBayar', $data);
+        
     }
 
     public function export()

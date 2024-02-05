@@ -13,19 +13,31 @@ use App\Models\NOPModel;
 
 class DaftarNopPbb extends BaseController
 {
+
+    public $nopModel, $db;
     function __construct()
     {
         $this->nopModel = new NOPModel();
+        $this->db = \Config\Database::connect();;
     }
 
     public function index()
     {
-        $data['noppbb'] = $this->nopModel->withDeleted()->findAll();
-        // $keyword = $this->request->getGet('keyword');
-        // $data = $this->nopModel->withDeleted()->getPaginated(10, $keyword);
-        // $data['pager'] = $this->nopModel->pager;
+        $selectedStatus = $this->request->getGet('filterStatus');
+    
+        if ($selectedStatus == '1') {
+            $data['noppbb'] = $this->nopModel->withDeleted()->where('status_bayar', '1')->findAll();
+        } elseif ($selectedStatus == '0') {
+            $data['noppbb'] = $this->nopModel->withDeleted()->where('status_bayar', '0')->findAll();
+        } else {
+            $data['noppbb'] = $this->nopModel->withDeleted()->findAll();
+        }
+    
+        $data['selectedStatus'] = $selectedStatus ?? ''; // Initialize the variable
+    
         return view('pbbView/daftarNopPbb/viewDaftarNopPbb', $data);
     }
+    
 
     public function create()
     {
@@ -34,6 +46,8 @@ class DaftarNopPbb extends BaseController
         $data = $this->request->getPost();
         $this->nopModel->insert($data);
         return redirect()->to(site_url('daftarNopPbb'))->with('success', 'Data berhasil Disimpan');
+        
+
     }
 
     public function store()
@@ -42,11 +56,12 @@ class DaftarNopPbb extends BaseController
             "nop" => $this->request->getPost('nop'),
             "tahun" => $this->request->getPost('tahun'),
             "nama" => $this->request->getPost('nama'),
-            "alamat" => $this->request->getPost('alamat'),
+            "alamat" => $this->request->getPost('alamat') . ' ' . $this->request->getPost('dusun') . ' RT/RW ' . $this->request->getPost('rt'). '/' . $this->request->getPost('rw'),
             "besaran_pbb" => $this->request->getPost('besaran_pbb'),
             "denda" => $this->request->getPost('denda'),
             "tanggal" => $this->request->getPost('tanggal'),
             "status_bayar" => $this->request->getPost('status_bayar'),
+            "jenis_pajak" => $this->request->getPost('jenis_pajak'),
             "created_at" => date('Y-m-d H:i:s'),
             "updated_at" => date('Y-m-d H:i:s'),
         ];
@@ -63,7 +78,8 @@ class DaftarNopPbb extends BaseController
             $data['noppbb'] = $noppbb;
             return view('pbbView/daftarnoppbb/editNopPbb', $data);
         } else {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+            return redirect()->to(site_url('daftarNopPbb'))->with('error', 'Data berada di dalam Permintaan Dihapus!');
+            // throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
         // if ($id != null) {
         //     $query = $this->db->table('tb_noppbb')->getWhere(['id' => $id]);
@@ -80,7 +96,21 @@ class DaftarNopPbb extends BaseController
 
     public function update($id = null)
     {
-        $data = $this->request->getPost();
+        $data = [
+            "nop" => $this->request->getVar('nop'),
+            "tahun" => $this->request->getVar('tahun'),
+            "nama" => $this->request->getVar('nama'),
+            "alamat" => $this->request->getPost('alamat') . ' ' . $this->request->getPost('dusun') . ' RT/RW ' . $this->request->getPost('rt'). '/' . $this->request->getPost('rw'),
+            "besaran_pbb" => $this->request->getVar('besaran_pbb'),
+            "denda" => $this->request->getVar('denda'),
+            "tanggal" => $this->request->getVar('tanggal'),
+            "status_bayar" => $this->request->getVar('status_bayar'),
+            "jenis_pajak" => $this->request->getVar('jenis_pajak'),
+            "created_at" => date('Y-m-d H:i:s'),
+            "updated_at" => date('Y-m-d H:i:s'),
+        ];
+        // $data = $this->request->getPost();
+        // dd($data);
         $this->nopModel->update($id, $data);
         return redirect()->to(site_url('daftarNopPbb'))->with('success', "Data Berhasil Diperbaharui");
         // $data = $this->request->getPost();
@@ -92,10 +122,25 @@ class DaftarNopPbb extends BaseController
 
     public function delete($id = null)
     {
-        // $this->nopModel->where('id', $id)->delete(); 
-        $this->nopModel->delete($id);
+        $this->nopModel->where('id', $id)->delete(); 
+        // $this->nopModel->delete($id);
         return redirect()->to(site_url('daftarNopPbb'))->with('success', 'Data Berhasil Dihapus');
     }
+
+    // public function delete($id = null)
+    // {
+    //     try {
+    //         $deleted = $this->nopModel->where('id', $id)->delete();
+    //         if ($deleted) {
+    //             return redirect()->to(site_url('daftarNopPbb'))->with('success', 'Data Berhasil Dihapus');
+    //         } else {
+    //             return redirect()->to(site_url('daftarNopPbb'))->with('error', 'Data Gagal Dihapus');
+    //         }
+    //     } catch (\Exception $e) {
+    //         return redirect()->to(site_url('daftarNopPbb'))->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+    //     }
+    // }
+
 
     public function sudahBayar()
     {
@@ -203,8 +248,8 @@ class DaftarNopPbb extends BaseController
                     'tahun' => $value[2],
                     'nama' => $value[3],
                     'alamat' => $value[4],
-                    'besaran_pbb' => $value[5],
-                    'denda' => $value[6],
+                    'besaran_pbb' => (float)str_replace(',', '', $value[5]),
+                    'denda' => (float)str_replace(',', '', $value[6]),
                 ];
                 $this->nopModel->insert($data);
             }
@@ -213,4 +258,23 @@ class DaftarNopPbb extends BaseController
             return redirect()->back()->with('error', 'Format File Tidak Sesuai');
         }
     }
+
+    // public function filter()
+    // {
+    //     $selectedStatus = $this->request->getGet('filterStatus');
+    
+    //     if ($selectedStatus == '1') {
+    //         $data['noppbb'] = $this->nopModel->where('status_bayar', '1')->findAll();
+    //     } elseif ($selectedStatus == '0') {
+    //         $data['noppbb'] = $this->nopModel->where('status_bayar', '0')->findAll();
+    //     } else {
+    //         $data['noppbb'] = $this->nopModel->findAll();
+    //     }
+    
+    //     $data['selectedStatus'] = $selectedStatus ?? ''; // Initialize the variable
+    
+    //     return view('pbbView/daftarNopPbb/viewDaftarNopPbb', $data);
+    // }
+
+
 }

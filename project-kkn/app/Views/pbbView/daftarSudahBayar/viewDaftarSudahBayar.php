@@ -17,7 +17,7 @@
             <div class="alert-body">
                 <button class="close" data-dismiss="alert">x</button>
                 <b>Error !</b>
-                <?= session()->getFlashdata('error') ?>
+                <?= session()->getFlashdata('error') ?> 
             </div>
         </div>
     <?php endif; ?>

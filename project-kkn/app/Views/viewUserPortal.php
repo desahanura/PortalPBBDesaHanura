@@ -24,9 +24,10 @@
                 <div class="card-body" style="align-self: center;">
                     <div class="mb-2 text-muted">Pencatatan PBB Desa Hanura</div>
                     <div class="chocolat-parent">
-                        <img src="images/logohanura.png" alt="Logo Hanura">
+                        <img src="images/logohanuraa.gif" alt="Logo Hanura" style="width: 100%; transition: transform 0.5s ease-in-out;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
                     </div>
                 </div>
+
             </div>
         </div>
         <!-- UMKM -->
@@ -58,7 +59,7 @@
                 <div class="card-body" style="align-self: center;">
                     <div class="mb-2 text-muted">Bumdes Desa Hanura</div>
                     <div class="chocolat-parent">
-                        <img src="images/logohanura.png" alt="Logo Hanura">
+                        <img src="images/logobumdes.png" alt="Logo Hanura">
                     </div>
                 </div>
             </div>

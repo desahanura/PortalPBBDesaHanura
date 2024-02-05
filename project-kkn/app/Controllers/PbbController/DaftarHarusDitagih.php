@@ -9,6 +9,8 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 class DaftarHarusDitagih extends BaseController
 {
+    public $nopModel;
+    
     function __construct()
     {
         $this->nopModel = new NOPModel();

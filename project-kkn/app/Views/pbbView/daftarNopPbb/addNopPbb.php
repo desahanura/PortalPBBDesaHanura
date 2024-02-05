@@ -35,7 +35,29 @@
                     </div>
                     <div class="form-group">
                         <label>Alamat *</label>
-                        <textarea name="alamat" cols="30" rows="10" class="form-control" required></textarea>
+                        <textarea name="alamat" cols="30" rows="10" class="form-control" required></textarea><br>
+                        <select name="dusun">
+                            <option value="Dusun A" class="form-control">Dusun A</option>
+                            <option value="Dusun B" class="form-control">Dusun B</option>
+                            <option value="Dusun C" class="form-control">Dusun C</option>
+                            <option value="Dusun D" class="form-control">Dusun D</option>
+                        </select>
+                        <select name="rt">
+                            <option value="1" class="form-control">RT 1</option>
+                            <option value="2" class="form-control">RT 2</option>
+                            <option value="3" class="form-control">RT 3</option>
+                            <option value="4" class="form-control">RT 4</option>
+                            <option value="5" class="form-control">RT 5</option>
+                            <option value="6" class="form-control">RT 6</option>
+                            <option value="7" class="form-control">RT 7</option>
+                            <option value="8" class="form-control">RT 8</option>
+                            <option value="9" class="form-control">RT 9</option>
+                            <option value="10" class="form-control">RT 10</option>
+                        </select>
+                        <select name="rw">
+                            <option value="A" class="form-control">RW A</option>
+                            <option value="B" class="form-control">RW B</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Besaran PBB *</label>
@@ -51,6 +73,14 @@
                             <option value="">--Pilih Status--</option>
                             <option value="1">Sudah Bayar</option>
                             <option value="0">Belum Bayar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Status *</label>
+                        <select name="jenis_pajak" id="status">
+                            <option value="">--Pilih Status--</option>
+                            <option value="1">Ditemukan</option>
+                            <option value="0">Tidak Ditemukan</option>
                         </select>
                     </div>
                     <div class="form-group">

@@ -31,11 +31,54 @@
                             <th>Denda</th>
                             <th>Tanggal Terdata</th>
                             <th>Status</th>
+                            <th>Status WP/OP</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                    </tbody>
+                            <?php foreach ($noppbb as $key => $value) : ?>
+                                <tr>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="checkbox<?= $key ?>" name="checkbox[]" value="<?= $value->id ?>">
+                                            <label class="custom-control-label" for="checkbox<?= $key ?>"></label>
+                                        </div>
+                                    </td>
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $value->nop ?></td>
+                                    <td><?= $value->tahun ?></td>
+                                    <td><?= $value->nama ?></td>
+                                    <td width=45%><?= $value->alamat ?></td>
+                                    <td><?= $value->besaran_pbb ?></td>
+                                    <td><?= $value->denda ?></td>
+                                    <td width=15%><?= $value->tanggal ?></td>
+                                    <td>
+                                        <?php if ($value->status_bayar == "1") {
+                                            echo "<p style='color:green;'>Sudah Bayar</p>";
+                                        } else {
+                                            echo "<p style='color:red;'>Belum Bayar</p>";
+                                        } ?>
+                                    </td>
+                                    <td>
+                                        <?php if ($value->jenis_pajak == "1") {
+                                            echo "<p style='color:green;'>Ditemukan</p>";
+                                        } else {
+                                            echo "<p style='color:red;'>Tidak Ditemukan</p>";
+                                        } ?>
+                                    </td>
+                                    <td class="text-center" style=" width:15%">
+                                        <a href="<?= site_url('daftarnoppbb/edit/' . $value->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                                        <form action="<?= site_url('daftarnoppbb/delete/' . $value->id) ?>" method="POST" class="d-inline" id="del-<?= $value->id ?>">
+                                            <?= csrf_field() ?>
+                                            <!-- <input type="hidden" name="_method" value="DELETE"> -->
+                                            <button class="btn btn-danger btn-sm" data-confirm="Hapus Data | Apakah Anda yakin ingin menghapus data ini?" data-confirm-yes="submitDel(<?= $value->id ?>)">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
                 </table>
             </div>
 </section>

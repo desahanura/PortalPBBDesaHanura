@@ -31,24 +31,28 @@ class Noppbb extends Migration
             ],
             'alamat' => [
                 'type' => 'TEXT',
-                'constraint' => '100',
+                
             ],
             'besaran_pbb' => [
-                'type' => 'varchar',
-                'constraint' => '100',
+                'type' => 'BIGINT',
+                'unsigned' => true,
                 'null' => true,
             ],
             'denda' => [
-                'type' => 'varchar',
-                'constraint' => '100',
+                'type' => 'BIGINT',
+                'unsigned' => true,
                 'null' => true,
             ],
             'tanggal' => [
                 'type' => 'DATE',
-                'default' => 
+                'default' => date('Y-m-d'),
                 // 'null' => true,
             ],
             'status_bayar' => [
+                'type' => 'BOOLEAN',
+                'default' => 0,
+            ],
+            'jenis_pajak' => [
                 'type' => 'BOOLEAN',
                 'default' => 0,
             ],

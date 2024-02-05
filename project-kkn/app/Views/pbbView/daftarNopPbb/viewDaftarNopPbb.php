@@ -23,13 +23,13 @@
     </div>
 
     <?php if (session()->getFlashdata('error')) : ?>
-        <div class="alert alert-danger alert-dismissible show fade">
-            <div class="alert-body">
-                <button class="close" data-dismiss="alert">x</button>
-                <b>Error !</b>
-                <?= session()->getFlashdata('error') ?>
-            </div>
-        </div>
+        <div class="alert alert-warning alert-dismissible show fade">
+    <div class="alert-body">
+        <!-- <b>Error !</b> -->
+        <?= session()->getFlashdata('error') ?>
+        <button type="button" class="btn btn-success"><a href="<?= site_url('daftarDihapus/') ?>" class="ms-auto">Klik Pulihkan</a></button>
+    </div>
+</div>
     <?php endif; ?>
     <?php if (session()->getFlashdata('success')) : ?>
         <div class="alert alert-success alert-dismissible show fade">
@@ -73,6 +73,8 @@
                                 <i class="fas fa-file-download"></i> Export Excel
                             </a>
                         </div>
+
+
                     </div>
                 </div>
                 <div class="card-body table-responsive">
@@ -89,6 +91,7 @@
                                 <th>Denda</th>
                                 <th>Tanggal Terdata</th>
                                 <th>Status</th>
+                                <th>Status WP/OP</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -104,6 +107,7 @@
                                             <input type="checkbox" class="custom-control-input" id="checkbox<?= $key ?>" name="checkbox[]" value="<?= $value->id ?>">
                                             <label class="custom-control-label" for="checkbox<?= $key ?>"></label>
                                         </div>
+                                        
                                     </td>
                                     <td><?= $no++ ?></td>
                                     <td><?= $value->nop ?></td>
@@ -120,9 +124,16 @@
                                             echo "<p style='color:red;'>Belum Bayar</p>";
                                         } ?>
                                     </td>
+                                    <td>
+                                        <?php if ($value->jenis_pajak == "1") {
+                                            echo "<p style='color:green;'>Ditemukan</p>";
+                                        } else {
+                                            echo "<p style='color:red;'>Tidak Ditemukan</p>";
+                                        } ?>
+                                    </td>
                                     <td class="text-center" style=" width:15%">
                                         <a href="<?= site_url('daftarnoppbb/edit/' . $value->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
-                                        <form action="<?= site_url('daftarnoppbb/delete/' . $value->id) ?>" method="POST" class="d-inline" id="del-<?= $value->id ?>">
+                                        <form action="<?= base_url('daftarnoppbb/delete/' . $value->id) ?>" method="POST" class="d-inline" id="del-<?= $value->id ?>">
                                             <?= csrf_field() ?>
                                             <!-- <input type="hidden" name="_method" value="DELETE"> -->
                                             <button class="btn btn-danger btn-sm" data-confirm="Hapus Data | Apakah Anda yakin ingin menghapus data ini?" data-confirm-yes="submitDel(<?= $value->id ?>)">
